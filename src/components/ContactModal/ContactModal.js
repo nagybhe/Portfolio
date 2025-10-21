@@ -33,20 +33,12 @@ const ContactModal = ({ show, handleClose }) => {
             to_email: 'ins4nityhz@gmail.com' // SEU EMAIL REAL AQUI
         };
 
-        // COLOCA O CONSOLE.LOG AQUI - ANTES DE TENTAR ENVIAR
-        console.log('📤 Tentando enviar email com:', {
-            service: 'service_rw65j59',
-            template: 'template_5a3bqu2',
-            publicKey: 'afhxTW6cc58fNJRwz',
-            params: templateParams
-        });
-
         try {
             await emailjs.send(
-                'service_rw65j59',
-                'template_5a3bqu2',
+                process.env.REACT_APP_EMAILJS_SERVICE_ID || 'service_rw65j59',
+                process.env.REACT_APP_EMAILJS_TEMPLATE_ID || 'template_5a3bqu2',
                 templateParams,
-                'afhxTW6cc58fNJRwz'
+                process.env.REACT_APP_EMAILJS_PUBLIC_KEY || 'afhxTW6cc58fNJRwz'
             );
 
             // Sucesso
