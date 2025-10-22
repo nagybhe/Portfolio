@@ -7,3 +7,15 @@
 
 # build
 build/
+
+# IDE
+.idea/
+
+# Node modules cache
+node_modules/.cache/
+
+# babel-loader cache
+node_modules/.cache/babel-loader/
+
+# Webpack/default cache
+node_modules/.cache/default-development/
