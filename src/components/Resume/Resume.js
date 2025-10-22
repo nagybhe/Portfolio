@@ -5,200 +5,333 @@ const Resume = () => {
     const education = [
         {
             institution: 'Estácio',
-            period: '2025 - 2026 (Data de término ou prevista)',
+            period: '2025 - 2026',
             course: 'Engenharia de Software',
-            type: 'Pós-graduação'
+            type: 'Pós-graduação',
+            status: 'Em andamento'
         },
         {
             institution: 'Faculdade de Informática e Administração Paulista (FIAP)',
             period: '2024',
             course: 'Offensive Cyber Security - Red Team Operations',
-            type: 'Pós-graduação'
+            type: 'Pós-graduação',
+            status: 'Trancado'
         },
         {
-            institution: 'Faculdade de Tecnólogia do Amapá - Meta',
-            period: '2024 - 2021',
+            institution: 'Faculdade de Tecnologia do Amapá - Meta',
+            period: '2021 - 2024',
             course: 'Sistemas para Internet',
-            type: 'Graduação'
-        },
-        {
-            institution: 'Ensino Médio Completo',
-            period: '2017',
-            course: 'Escola – Centro de Ensino Supletivo Prof°. Paulo Melo.',
-            type: ''
+            type: 'Graduação',
+            status: 'Concluído'
         }
     ];
 
     const certificates = [
-        'Orchestrator Admin: Automation Management with ElectroNeek Orchestrator',
-        'RPA Developer: Automation Development in ElectroNeek Studio Pro',
-        'Atendimento Surpreendente ao Cliente - Customer Service/SAC',
-        'Cybersecurity',
-        'DevOps & Agile Culture',
-        'User Experience',
-        'G4 Startups',
-        'Gatilhos Mentais em Vendas',
-        'Vendas Pelo WhatsApp',
-        'Inteligência Emocional',
-        'O Sucesso da Retenção de Clientes no Pós-Venda',
-        'Fundamentos de Customer Success para Analistas',
-        'Fundamentos em Experiência do Cliente',
-        'Fundamentos em Finanças',
-        'Gente e Cultura 4.0',
-        'Pensamento Crítico',
-        'Indicadores e Métricas',
-        'Fundamentos em Gestão por OKRs',
-        'Programação para internet com JavaScript',
-        'Entrepreneurship',
-        'Conceitos de Responsividade e Experiência do Usuário',
-        'Introdução a banco de dados com MySQL & PHPMyAdmin',
-        'Arquitetura de Sistemas',
-        'Cloud Computing & Serverless',
-        'Desenvolvimento de software com Azure Static Web Apps e GitHub Actions',
-        'Fundamentos de Arquitetura de Sistemas',
-        'Linux: A introdução ao sistema operacional',
-        'Criando um repositório para seus projetos inovadores',
-        'Fundamentos da Computação em Nuvem',
-        'Fundamentos do Azure',
-        'Introdução aos Conceitos de Serverless e Azure Functions',
-        'Lógica de programação essencial',
-        'SMS Expert',
-        'Projetos Ágeis com Scrum',
-        'Fundamentos em Liderança',
-        'Experiência do Cliente'
+        {
+            name: 'Orchestrator Admin: Automation Management with ElectroNeek Orchestrator',
+            category: 'RPA & Automação'
+        },
+        {
+            name: 'RPA Developer: Automation Development in ElectroNeek Studio Pro',
+            category: 'RPA & Automação'
+        },
+        {
+            name: 'Cybersecurity',
+            category: 'Segurança Cibernética'
+        },
+        {
+            name: 'DevOps & Agile Culture',
+            category: 'Metodologias Ágeis'
+        },
+        {
+            name: 'Projetos Ágeis com Scrum',
+            category: 'Metodologias Ágeis'
+        },
+        {
+            name: 'Fundamentos em Gestão por OKRs',
+            category: 'Metodologias Ágeis'
+        },
+        {
+            name: 'User Experience',
+            category: 'Design & UX'
+        },
+        {
+            name: 'Conceitos de Responsividade e Experiência do Usuário',
+            category: 'Design & UX'
+        },
+        {
+            name: 'Programação para internet com JavaScript',
+            category: 'Desenvolvimento'
+        },
+        {
+            name: 'Lógica de programação essencial',
+            category: 'Desenvolvimento'
+        },
+        {
+            name: 'Introdução a banco de dados com MySQL & PHPMyAdmin',
+            category: 'Banco de Dados'
+        },
+        {
+            name: 'Arquitetura de Sistemas',
+            category: 'Arquitetura & Cloud'
+        },
+        {
+            name: 'Fundamentos de Arquitetura de Sistemas',
+            category: 'Arquitetura & Cloud'
+        },
+        {
+            name: 'Cloud Computing & Serverless',
+            category: 'Arquitetura & Cloud'
+        },
+        {
+            name: 'Fundamentos da Computação em Nuvem',
+            category: 'Arquitetura & Cloud'
+        },
+        {
+            name: 'Fundamentos do Azure',
+            category: 'Arquitetura & Cloud'
+        },
+        {
+            name: 'Introdução aos Conceitos de Serverless e Azure Functions',
+            category: 'Arquitetura & Cloud'
+        },
+        {
+            name: 'Desenvolvimento de software com Azure Static Web Apps e GitHub Actions',
+            category: 'Arquitetura & Cloud'
+        },
+        {
+            name: 'Linux: A introdução ao sistema operacional',
+            category: 'Sistemas & Infraestrutura'
+        },
+        {
+            name: 'Criando um repositório para seus projetos inovadores',
+            category: 'Ferramentas & Versionamento'
+        },
+        {
+            name: 'Atendimento Surpreendente ao Cliente - Customer Service/SAC',
+            category: 'Customer Success & Vendas'
+        },
+        {
+            name: 'O Sucesso da Retenção de Clientes no Pós-Venda',
+            category: 'Customer Success & Vendas'
+        },
+        {
+            name: 'Fundamentos de Customer Success para Analistas',
+            category: 'Customer Success & Vendas'
+        },
+        {
+            name: 'Fundamentos em Experiência do Cliente',
+            category: 'Customer Success & Vendas'
+        },
+        {
+            name: 'Gatilhos Mentais em Vendas',
+            category: 'Customer Success & Vendas'
+        },
+        {
+            name: 'Vendas Pelo WhatsApp',
+            category: 'Customer Success & Vendas'
+        },
+        {
+            name: 'SMS Expert',
+            category: 'Customer Success & Vendas'
+        },
+        {
+            name: 'G4 Startups',
+            category: 'Empreendedorismo'
+        },
+        {
+            name: 'Entrepreneurship',
+            category: 'Empreendedorismo'
+        },
+        {
+            name: 'Inteligência Emocional',
+            category: 'Soft Skills'
+        },
+        {
+            name: 'Pensamento Crítico',
+            category: 'Soft Skills'
+        },
+        {
+            name: 'Fundamentos em Liderança',
+            category: 'Soft Skills'
+        },
+        {
+            name: 'Gente e Cultura 4.0',
+            category: 'Gestão & Negócios'
+        },
+        {
+            name: 'Indicadores e Métricas',
+            category: 'Gestão & Negócios'
+        },
+        {
+            name: 'Fundamentos em Finanças',
+            category: 'Gestão & Negócios'
+        },
+        {
+            name: 'Experiência do Cliente',
+            category: 'Customer Success & Vendas'
+        }
     ];
+
+    // Agrupar certificações por categoria
+    const groupedCertificates = certificates.reduce((acc, cert) => {
+        if (!acc[cert.category]) {
+            acc[cert.category] = [];
+        }
+        acc[cert.category].push(cert);
+        return acc;
+    }, {});
 
     const experiences = [
         {
             title: 'Analista de Requisitos (PO)',
             company: 'MSB Tecnologia',
             period: '2025 - 2025',
+            location: 'Híbrido',
+            type: 'Tempo integral',
             responsibilities: [
-                'Metodologias Ágeis (Scrum, Kanban)',
-                'Gestão de Requisitos',
-                'Ferramentas de Gestão de Projetos',
-                'Diagramação e Modelagem de Processos',
-                'Gerenciamento de Riscos e Qualidade',
-                'Gestão de Stakeholders',
-                'Análise de Dados e Relatórios',
-                'Desenvolvimento de Documentação Técnica',
-                'Gestão de Equipes',
-                'Automação de Processos'
-            ]
+                'Levantamento, análise e gestão de requisitos funcionais e não funcionais',
+                'Priorização e refinamento de backlog com foco em valor de negócio',
+                'Facilitação de cerimônias ágeis (Scrum, Kanban)',
+                'Elaboração de user stories e critérios de aceitação',
+                'Facilitação de cerimônias ágeis (Scrum, Kanban)',
+                'Modelagem de processos e fluxos (UML, BPMN)',
+                'Gestão de demandas e documentação técnica',
+                'Comunicação com stakeholders e validação de entregas',
+            ],
+            technologies: ['Jira', 'Confluence', 'Trello', 'Redmine', 'Lucidchart', 'Visio', 'Scrum', 'Kanban']
         },
         {
-            title: 'Back-end Developer(RPA)',
+            title: 'Back-end Developer (RPA)',
             company: 'Tributei',
             period: '2023 - 2025',
+            location: 'Híbrido',
+            type: 'Tempo integral',
             responsibilities: [
-                'Desenvolvimento de Robôs',
-                'Integração do cliente',
-                'Integração com Sistemas',
-                'Manipulação e Processamento de Dados',
-                'Monitoramento e Manutenção',
-                'Análise de Processos',
-                'Colaboração com Equipes Multidisciplinares'
-            ]
+                'Desenvolvimento e manutenção de robôs RPA',
+                'Integração com APIs e sistemas legados',
+                'Automação de processos fiscais e contábeis',
+                'Otimização de performance e monitoramento',
+                'Colaboração em arquitetura de soluções'
+            ],
+            technologies: ['Python', 'ElectroNeek', 'SQL', 'REST APIs', 'Azure']
         },
         {
             title: 'Head Customer Success',
             company: 'Tributei',
-            period: '6 Meses',
+            period: '2023 (6 meses)',
+            location: 'Híbrido',
+            type: 'Tempo integral',
             responsibilities: [
-                'Definição de Estratégia e Planejamento',
-                'Gestão de Equipe',
-                'Engajamento e Retenção de Clientes',
-                'Estratégias de Expansão e Crescimento',
-                'Interação com outras Áreas',
-                'Análise e Relatórios de Performance'
-            ]
+                'Liderança da equipe de Customer Success',
+                'Estratégia de retenção e expansão de clientes',
+                'Análise de métricas NPS, CSAT e churn rate',
+                'Desenvolvimento de processos de onboarding',
+                'Gestão de relacionamento com clientes enterprise'
+            ],
+            technologies: ['CRM', 'Analytics', 'Zendesk', 'Metabase']
         },
         {
-            title: 'Customer Support',
+            title: 'Customer Support & Success',
             company: 'Tributei',
-            period: '2022 - 2023',
+            period: '2021 - 2023',
+            location: 'Híbrido',
+            type: 'Tempo integral',
             responsibilities: [
-                'Atendimento ao Cliente',
-                'Resolução de Problemas',
-                'Documentação e Registros',
-                'Treinamento e Orientação',
-                'Feedback e Melhoria Contínua',
-                'Manutenção da Base de Conhecimento',
-                'Análise e Relatórios'
-            ]
-        },
-        {
-            title: 'Customer success',
-            company: 'Tributei',
-            period: '2021 - 2022',
-            responsibilities: [
-                'Monitoramento de Métricas',
-                'Integração do cliente',
-                'Upsell e Cross-sell',
-                'Onboarding'
-            ]
-        },
-        {
-            title: 'Sonoplasta',
-            company: 'Op\'Art',
-            period: '2013 / 2018',
-            responsibilities: [
-                'Criação de Artes',
-                'Edição de Vídeo',
-                'Edição de Audio'
-            ]
-        },
-        {
-            title: 'T.I',
-            company: 'Casa do Sofá',
-            period: '2015 / 2015',
-            responsibilities: [
-                'Manutenção de Microcomputadores'
-            ]
+                'Atendimento especializado a clientes',
+                'Resolução de problemas técnicos complexos',
+                'Treinamento e capacitação de usuários',
+                'Documentação de base de conhecimento',
+                'Suporte a processos de upsell e cross-sell'
+            ],
+            technologies: ['Zendesk', 'Intercom', 'Notion', 'Slack']
         }
     ];
 
     return (
-        <section id="resume" className="resume bg-dark">
+        <section id="resume" className="resume">
             <div className="container">
                 <div className="section-title">
-                    <h2 className="text-white">Qualificações</h2>
+                    <h2>Qualificações</h2>
+                    <p>Minha jornada profissional e acadêmica</p>
                 </div>
 
                 <div className="row">
+                    {/* Experiência Profissional */}
                     <div className="col-lg-6" data-aos="fade-up">
-                        <h3 className="resume-title text-white">Formação</h3>
-                        {education.map((edu, index) => (
+                        <h3 className="resume-title">Experiência Profissional</h3>
+                        {experiences.map((exp, index) => (
                             <div key={index} className="resume-item">
-                                <h4 className="text-white">{edu.institution}</h4>
-                                <h5 className="bg-dark text-white">{edu.period}</h5>
-                                <p className="text-white"><em>{edu.course}</em></p>
-                                {edu.type && <p className="text-white"><em>{edu.type}</em></p>}
-                            </div>
-                        ))}
-
-                        <h3 className="resume-title text-white">Licenças e Certificados</h3>
-                        {certificates.map((cert, index) => (
-                            <div key={index} className="resume-item">
-                                <p className="text-white"><em>{cert}</em></p>
+                                <div className="resume-header">
+                                    <h4>{exp.title}</h4>
+                                    <div className="resume-meta">
+                                        <span className="company">{exp.company}</span>
+                                        <span className="period">{exp.period}</span>
+                                    </div>
+                                </div>
+                                <div className="resume-details">
+                                    <div className="job-info">
+                                        <span className="location">{exp.location}</span>
+                                        <span className="job-type">{exp.type}</span>
+                                    </div>
+                                    <ul>
+                                        {exp.responsibilities.map((resp, idx) => (
+                                            <li key={idx}>{resp}</li>
+                                        ))}
+                                    </ul>
+                                    {exp.technologies && (
+                                        <div className="technologies">
+                                            {exp.technologies.map((tech, idx) => (
+                                                <span key={idx} className="tech-tag">{tech}</span>
+                                            ))}
+                                        </div>
+                                    )}
+                                </div>
                             </div>
                         ))}
                     </div>
 
+                    {/* Formação e Certificados */}
                     <div className="col-lg-6" data-aos="fade-up" data-aos-delay="100">
-                        <h3 className="resume-title text-white">Experiência Profissional</h3>
-                        {experiences.map((exp, index) => (
+                        {/* Formação Acadêmica */}
+                        <h3 className="resume-title">Formação Acadêmica</h3>
+                        {education.map((edu, index) => (
                             <div key={index} className="resume-item">
-                                <h4 className="text-white">{exp.title}</h4>
-                                <p className="bg-dark text-white"><em>{exp.company}</em></p>
-                                <h5 className="bg-dark text-white">{exp.period}</h5>
-                                <ul>
-                                    {exp.responsibilities.map((resp, idx) => (
-                                        <li key={idx} className="bg-dark text-white">{resp}</li>
-                                    ))}
-                                </ul>
+                                <div className="resume-header">
+                                    <h4>{edu.institution}</h4>
+                                    <span className="period">{edu.period}</span>
+                                </div>
+                                <div className="resume-details">
+                                    <p className="course">{edu.course}</p>
+                                    <div className="education-meta">
+                                        <span className="degree-type">{edu.type}</span>
+                                        <span className={`status ${edu.status.toLowerCase().replace(' ', '-')}`}>
+                                            {edu.status}
+                                        </span>
+                                    </div>
+                                </div>
                             </div>
                         ))}
+
+                        {/* Certificados Organizados por Categoria */}
+                        <h3 className="resume-title">Certificações</h3>
+                        <div className="certificates-container">
+                            {Object.entries(groupedCertificates).map(([category, certs]) => (
+                                <div key={category} className="certificate-category">
+                                    <h4 className="category-title">{category}</h4>
+                                    <div className="certificates-grid">
+                                        {certs.map((cert, index) => (
+                                            <div key={index} className="certificate-card">
+                                                <div className="certificate-content">
+                                                    <h5>{cert.name}</h5>
+                                                    <span className="certificate-category">{cert.category}</span>
+                                                </div>
+                                            </div>
+                                        ))}
+                                    </div>
+                                </div>
+                            ))}
+                        </div>
                     </div>
                 </div>
             </div>

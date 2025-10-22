@@ -184,14 +184,24 @@ const Portfolio = () => {
         setSelectedProject(null);
     };
 
+    const getCategoryLabel = (category) => {
+        const labels = {
+            'filter-app': 'React Native',
+            'filter-card': 'Node.js',
+            'filter-web': 'Web'
+        };
+        return labels[category] || category;
+    };
+
     return (
-        <section id="portfolio" className="portfolio section-bg bg-dark text-white">
+        <section id="portfolio" className="portfolio">
             <div className="container">
                 <div className="section-title">
-                    <h2 className="text-white">Projetos</h2>
+                    <h2>Projetos</h2>
+                    <p>Meus trabalhos e desenvolvimentos recentes</p>
                 </div>
 
-                {/* Filtros */}
+                {/* Filtros Modernizados */}
                 <div className="row" data-aos="fade-up">
                     <div className="col-lg-12 d-flex justify-content-center">
                         <ul id="portfolio-flters">
@@ -223,20 +233,67 @@ const Portfolio = () => {
                     </div>
                 </div>
 
-                {/* Grid de Projetos */}
+                {/* Grid de Projetos Modernizado - 3 COLUNAS FIXAS */}
                 <div className="row portfolio-container" data-aos="fade-up" data-aos-delay="100">
                     {filteredProjects.map(project => (
                         <div key={project.id} className="col-lg-4 col-md-6 portfolio-item">
                             <div className="portfolio-wrap" onClick={() => handleProjectClick(project)}>
-                                <img
-                                    src={project.images[0]}
-                                    className="img-fluid"
-                                    alt={project.title}
-                                />
+                                {/* Badge de Status */}
+                                <span className={`portfolio-badge ${project.status === 'Completo' ? 'completed' : 'in-progress'}`}>
+                                    {project.status}
+                                </span>
+
+                                {/* Container da Imagem */}
+                                <div className="portfolio-image-container">
+                                    <img
+                                        src={project.images[0]}
+                                        className="img-fluid"
+                                        alt={project.title}
+                                    />
+                                </div>
+
+                                {/* Overlay de Conteúdo */}
+                                <div className="portfolio-content">
+                                    <span className="portfolio-category">
+                                        {getCategoryLabel(project.category)}
+                                    </span>
+                                    <h3 className="portfolio-title">{project.title}</h3>
+                                    <p className="portfolio-description">{project.description}</p>
+
+                                    {/* Tecnologias */}
+                                    <div className="portfolio-tech">
+                                        {project.technologies.slice(0, 3).map((tech, index) => (
+                                            <span key={index}>{tech}</span>
+                                        ))}
+                                        {project.technologies.length > 3 && (
+                                            <span>+{project.technologies.length - 3}</span>
+                                        )}
+                                    </div>
+                                </div>
+
+                                {/* Links */}
                                 <div className="portfolio-links">
-                                    <a href="#" title="Mais Detalhes">
-                                        <i className="bx bx-link"></i>
+                                    <a
+                                        href="#"
+                                        title="Ver Detalhes"
+                                        onClick={(e) => {
+                                            e.preventDefault();
+                                            handleProjectClick(project);
+                                        }}
+                                    >
+                                        <i className="bx bx-plus"></i>
                                     </a>
+                                    {project.projectUrl && project.projectUrl !== 'Projeto Privado' && (
+                                        <a
+                                            href={project.projectUrl}
+                                            target="_blank"
+                                            rel="noopener noreferrer"
+                                            title="Ver Projeto"
+                                            onClick={(e) => e.stopPropagation()}
+                                        >
+                                            <i className="bx bx-link-external"></i>
+                                        </a>
+                                    )}
                                 </div>
                             </div>
                         </div>

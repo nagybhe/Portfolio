@@ -9,16 +9,30 @@
     width: 300px;
     transition: all ease-in-out 0.5s;
     z-index: 9997;
+    transition: all 0.5s;
     padding: 0 15px;
     background: #040b14;
     overflow-y: auto;
+    box-shadow: 0 0 20px rgba(0, 0, 0, 0.5);
 }
 
-.header .profile img {
+/* Profile Section */
+.header .profile {
+    text-align: center;
+    margin: 20px 0;
+}
+
+.header .profile-img {
     margin: 15px auto;
-    display: block;
     width: 120px;
+    height: 120px;
     border: 8px solid #2c2f3f;
+    transition: all 0.3s ease;
+}
+
+.header .profile-img:hover {
+    border-color: #149ddd;
+    transform: scale(1.05);
 }
 
 .header .profile h1 {
@@ -26,8 +40,6 @@
     margin: 0;
     padding: 0;
     font-weight: 600;
-    text-align: center;
-    font-family: "Poppins", sans-serif;
 }
 
 .header .profile h1 a,
@@ -36,102 +48,235 @@
     text-decoration: none;
 }
 
-.header .profile .social-links a {
-    font-size: 18px;
-    display: inline-block;
-    background: #212431;
-    color: #fff;
-    line-height: 1;
-    padding: 8px 0;
-    margin-right: 4px;
-    border-radius: 50%;
-    text-align: center;
+/* Social Links */
+.header .social-links {
+    display: flex;
+    justify-content: center;
+    gap: 15px;
+    margin-top: 20px;
+}
+
+.header .social-links a {
+    display: flex;
+    align-items: center;
+    justify-content: center;
     width: 36px;
     height: 36px;
-    transition: 0.3s;
-}
-
-.header .profile .social-links a:hover {
-    background: #149ddd;
+    background: #2c2f3f;
+    border-radius: 50%;
     color: #fff;
     text-decoration: none;
+    transition: all 0.3s ease;
+    font-size: 18px;
 }
 
-/*--------------------------------------------------------------
-# Navigation Menu
---------------------------------------------------------------*/
-.nav-menu {
+.header .social-links a:hover {
+    background: #149ddd;
+    transform: translateY(-3px);
+    box-shadow: 0 5px 15px rgba(20, 157, 221, 0.3);
+}
+
+/* Navigation Menu */
+.header .nav-menu {
     padding: 30px 0 0 0;
 }
 
-.nav-menu * {
-    margin: 0;
-    padding: 0;
+.header .nav-menu ul {
     list-style: none;
+    padding: 0;
+    margin: 0;
 }
 
-.nav-menu > ul > li {
+.header .nav-menu li {
     position: relative;
-    white-space: nowrap;
+    margin-bottom: 8px;
 }
 
-.nav-menu a,
-.nav-menu a:focus {
+.header .nav-menu .nav-link {
     display: flex;
     align-items: center;
     color: #a8a9b4;
-    padding: 12px 15px;
+    padding: 12px 20px;
     margin-bottom: 8px;
-    transition: 0.3s;
-    font-size: 15px;
-}
-
-.nav-menu a i,
-.nav-menu a:focus i {
-    font-size: 24px;
-    padding-right: 8px;
-    color: #6f7180;
-}
-
-.nav-menu a:hover,
-.nav-menu .active,
-.nav-menu .active:focus,
-.nav-menu li:hover > a {
+    transition: all 0.3s ease;
+    border-radius: 8px;
     text-decoration: none;
+    position: relative;
+    overflow: hidden;
+}
+
+.header .nav-menu .nav-link::before {
+    content: '';
+    position: absolute;
+    left: 0;
+    top: 0;
+    bottom: 0;
+    width: 3px;
+    background: #149ddd;
+    transform: scaleY(0);
+    transition: transform 0.3s ease;
+}
+
+.header .nav-menu .nav-link:hover,
+.header .nav-menu .nav-link.active {
     color: #fff;
+    background: rgba(20, 157, 221, 0.1);
 }
 
-.nav-menu a:hover i,
-.nav-menu .active i,
-.nav-menu .active:focus i,
-.nav-menu li:hover > a i {
+.header .nav-menu .nav-link:hover::before,
+.header .nav-menu .nav-link.active::before {
+    transform: scaleY(1);
+}
+
+.header .nav-menu .nav-link i {
+    font-size: 18px;
+    margin-right: 15px;
+    width: 20px;
+    text-align: center;
+    transition: all 0.3s ease;
+}
+
+.header .nav-menu .nav-link:hover i,
+.header .nav-menu .nav-link.active i {
     color: #149ddd;
+    transform: scale(1.1);
 }
 
-/* Mobile Navigation */
+.header .nav-menu .nav-link span {
+    font-size: 15px;
+    font-weight: 500;
+}
+
+/* Active Indicator */
+.header .nav-menu .active-indicator {
+    position: absolute;
+    right: 20px;
+    width: 8px;
+    height: 8px;
+    background: #149ddd;
+    border-radius: 50%;
+    animation: pulse 2s infinite;
+}
+
+@keyframes pulse {
+    0% {
+        box-shadow: 0 0 0 0 rgba(20, 157, 221, 0.7);
+    }
+    70% {
+        box-shadow: 0 0 0 10px rgba(20, 157, 221, 0);
+    }
+    100% {
+        box-shadow: 0 0 0 0 rgba(20, 157, 221, 0);
+    }
+}
+
+/* Download CV Button */
+.header .download-cv {
+    padding: 20px 0;
+    margin-top: auto;
+}
+
+.header .btn-download-cv {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+    background: linear-gradient(135deg, #149ddd 0%, #1f5297 100%);
+    color: white;
+    padding: 12px 25px;
+    border-radius: 25px;
+    text-decoration: none;
+    font-weight: 600;
+    transition: all 0.3s ease;
+    border: none;
+    width: 100%;
+    text-align: center;
+}
+
+.header .btn-download-cv:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 8px 25px rgba(20, 157, 221, 0.3);
+    background: linear-gradient(135deg, #1f5297 0%, #149ddd 100%);
+    color: white;
+}
+
+.header .btn-download-cv i {
+    font-size: 18px;
+}
+
+/* Scrollbar Styling */
+.header::-webkit-scrollbar {
+    width: 6px;
+}
+
+.header::-webkit-scrollbar-track {
+    background: #2c2f3f;
+}
+
+.header::-webkit-scrollbar-thumb {
+    background: #149ddd;
+    border-radius: 10px;
+}
+
+.header::-webkit-scrollbar-thumb:hover {
+    background: #37b3ed;
+}
+
+/* Mobile Responsive */
+@media (max-width: 1199px) {
+    .header {
+        left: -300px;
+    }
+
+    .header.mobile-nav-active {
+        left: 0;
+    }
+}
+
+@media (max-width: 768px) {
+    .header {
+        width: 100%;
+        left: -100%;
+    }
+
+    .header .profile-img {
+        width: 100px;
+        height: 100px;
+    }
+
+    .header .profile h1 {
+        font-size: 20px;
+    }
+
+    .header .nav-menu .nav-link {
+        padding: 10px 15px;
+    }
+}
+
+/* Mobile Toggle Button (adicione este CSS se quiser um botão toggle) */
 .mobile-nav-toggle {
     position: fixed;
     right: 15px;
     top: 15px;
     z-index: 9998;
     border: 0;
-    font-size: 24px;
-    transition: all 0.4s;
-    outline: none !important;
-    background-color: #149ddd;
+    background: #149ddd;
     color: #fff;
     width: 40px;
     height: 40px;
-    display: inline-flex;
+    border-radius: 50px;
+    transition: all 0.4s;
+    display: none;
     align-items: center;
     justify-content: center;
-    line-height: 0;
-    border-radius: 50px;
-    cursor: pointer;
+}
+
+.mobile-nav-toggle:hover {
+    background: #2eafec;
 }
 
 @media (max-width: 1199px) {
-    .header {
-        left: -300px;
+    .mobile-nav-toggle {
+        display: flex;
     }
 }

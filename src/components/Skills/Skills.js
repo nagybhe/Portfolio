@@ -2,68 +2,91 @@ import React from 'react';
 import './Skills.css';
 
 const Skills = () => {
-    const skillsLeft = [
-        { name: 'HTML5', percentage: 100 },
-        { name: 'CSS3', percentage: 100 },
-        { name: 'FRAMEWORK BOOTSTRAP', percentage: 100 },
-        { name: 'GITHUB | GITLAB', percentage: 90 },
-        { name: 'RPA(Robotic Process Automation)', percentage: 80 },
-        { name: 'JavaScript', percentage: 70 },
-        { name: 'REACT NATIVE', percentage: 60 },
-        { name: 'GÊRENCIA DE PROJETOS', percentage: 60 },
-        { name: 'PLATAFORMAS DE SUPORTE E CRMS', percentage: 90 },
-        { name: 'SISTEMAS DE TICKETS', percentage: 90 }
+    const skillsByCategory = [
+        {
+            category: 'Desenvolvimento Front-end & Design',
+            skills: [
+                { name: 'HTML5', percentage: 100 },
+                { name: 'CSS3', percentage: 100 },
+                { name: 'Framework Bootstrap', percentage: 100 },
+                { name: 'JavaScript', percentage: 80 },
+                { name: 'React Native', percentage: 70 },
+                { name: 'Figma', percentage: 100 },
+                { name: 'Adobe Photoshop', percentage: 100 },
+                { name: 'Adobe Illustrator', percentage: 100 }
+            ]
+        },
+        {
+            category: 'Desenvolvimento Back-end & Infraestrutura',
+            skills: [
+                { name: 'Node.js', percentage: 80 },
+                { name: 'PHP', percentage: 70 },
+                { name: 'Banco de Dados', percentage: 70 },
+                { name: 'RPA (Robotic Process Automation)', percentage: 90 },
+                { name: 'GitHub | GitLab', percentage: 90 }
+            ]
+        },
+        {
+            category: 'Gestão & Metodologias',
+            skills: [
+                { name: 'Metodologias Ágeis', percentage: 100 },
+                { name: 'Gestão de Projetos', percentage: 80 },
+                { name: 'Análise de Dados e Relatórios', percentage: 100 },
+                { name: 'Resolução de Problemas Técnicos', percentage: 100 }
+            ]
+        },
+        {
+            category: 'Customer Success & Suporte',
+            skills: [
+                { name: 'Plataformas de Suporte e CRMs', percentage: 100 },
+                { name: 'Sistemas de Tickets', percentage: 100 },
+                { name: 'Suporte por Canal Específico', percentage: 100 },
+                { name: 'Compreensão de Produtos/Serviços', percentage: 100 }
+            ]
+        }
     ];
 
-    const skillsRight = [
-        { name: 'ADOBE PHOTOSHOP', percentage: 100 },
-        { name: 'ADOBE ILLUSTRATOR', percentage: 100 },
-        { name: 'FIGMA', percentage: 100 },
-        { name: 'METODOLOGIAS ÁGEIS', percentage: 100 },
-        { name: 'NODE JS', percentage: 70 },
-        { name: 'PHP', percentage: 60 },
-        { name: 'BANCO DE DADOS', percentage: 60 },
-        { name: 'SUPORTE POR CANAL ESPECÍFICO', percentage: 90 },
-        { name: 'RESOLUÇÃO DE PROBLEMAS TÉCNICOS', percentage: 100 },
-        { name: 'ANÁLISE DE DADOS E RELATÓRIOS', percentage: 100 },
-        { name: 'COMPREENSÃO APROFUNDADA DO FUNCIONAMENTO DE UM PRODUTO(s) OU SERVIÇO(s)', percentage: 90 }
-    ];
-
-    const SkillProgress = ({ skill }) => (
-        <div className="progress">
-      <span className="skill text-white">
-        {skill.name} <i className="val">{skill.percentage}%</i>
-      </span>
-            <div className="progress-bar-wrap">
-                <div
-                    className="progress-bar"
-                    role="progressbar"
-                    style={{ width: `${skill.percentage}%` }}
-                    aria-valuenow={skill.percentage}
-                    aria-valuemin="0"
-                    aria-valuemax="100"
-                ></div>
+    const SkillCard = ({ category, skills }) => (
+        <div className="skill-category" data-aos="fade-up">
+            <h3 className="skill-category-title">{category}</h3>
+            <div className="skills-list">
+                {skills.map((skill, index) => (
+                    <div key={index} className="skill-item">
+                        <div className="skill-header">
+                            <span className="skill-name">{skill.name}</span>
+                            <span className="skill-percentage">{skill.percentage}%</span>
+                        </div>
+                        <div className="skill-bar-container">
+                            <div
+                                className="skill-bar"
+                                style={{ width: `${skill.percentage}%` }}
+                            >
+                                <div className="skill-bar-progress"></div>
+                            </div>
+                        </div>
+                    </div>
+                ))}
             </div>
         </div>
     );
 
     return (
-        <section id="skills" className="skills section-bg bg-dark text-white">
+        <section id="skills" className="skills">
             <div className="container">
                 <div className="section-title">
-                    <h2 className="text-white">Hard Skills</h2>
+                    <h2>Hard Skills</h2>
+                    <p>Minhas competências técnicas e profissionais</p>
                 </div>
 
-                <div className="row skills-content">
-                    <div className="col-lg-6" data-aos="fade-up">
-                        {skillsLeft.map((skill, index) => (
-                            <SkillProgress key={index} skill={skill} />
-                        ))}
-                    </div>
-
-                    <div className="col-lg-6" data-aos="fade-up" data-aos-delay="100">
-                        {skillsRight.map((skill, index) => (
-                            <SkillProgress key={index} skill={skill} />
+                <div className="skills-container">
+                    <div className="row">
+                        {skillsByCategory.map((category, index) => (
+                            <div key={index} className="col-lg-6">
+                                <SkillCard
+                                    category={category.category}
+                                    skills={category.skills}
+                                />
+                            </div>
                         ))}
                     </div>
                 </div>

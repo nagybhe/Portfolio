@@ -1,85 +1,167 @@
-/*--------------------------------------------------------------
-# About
---------------------------------------------------------------*/
-.about .content h3 {
-    font-weight: 700;
-    font-size: 26px;
-    color: #173b6c;
+.about {
+    padding: 80px 0;
+    background: linear-gradient(135deg, #212529 0%, #212529 100%);
 }
 
-.about .content ul {
-    list-style: none;
-    padding: 0;
-}
-
-.about .content ul li {
-    margin-bottom: 20px;
-    display: flex;
-    align-items: center;
-}
-
-.about .content ul strong {
-    margin-right: 10px;
-}
-
-.about .content ul i {
-    font-size: 16px;
-    margin-right: 5px;
-    color: #149ddd;
-    line-height: 0;
-}
-
-.about .content p:last-child {
-    margin-bottom: 0;
-}
-
-/*--------------------------------------------------------------
-# Facts
---------------------------------------------------------------*/
-.facts {
+.about .section-title {
+    text-align: center;
     padding-bottom: 30px;
 }
 
-.facts .count-box {
-    padding: 30px;
-    width: 100%;
-}
-
-.facts .count-box i {
-    display: block;
-    font-size: 44px;
-    color: #149ddd;
-    float: left;
-    line-height: 0;
-}
-
-.facts .count-box span {
-    font-size: 48px;
-    line-height: 40px;
-    display: block;
+.about .section-title h2 {
+    font-size: 32px;
     font-weight: 700;
-    color: #050d18;
-    margin-left: 60px;
+    text-transform: uppercase;
+    margin-bottom: 10px;
+    position: relative;
+    color: #fff;
 }
 
-.facts .count-box p {
-    padding: 15px 0 0 0;
-    margin: 0 0 0 60px;
-    font-family: "Raleway", sans-serif;
-    font-size: 14px;
-    color: #122f57;
-}
-
-.facts .count-box a {
-    font-weight: 600;
+.about .section-title h2::after {
+    content: '';
+    position: absolute;
     display: block;
-    margin-top: 20px;
-    color: #122f57;
-    font-size: 15px;
-    font-family: "Poppins", sans-serif;
-    transition: ease-in-out 0.3s;
+    width: 50px;
+    height: 3px;
+    background: #149ddd;
+    bottom: -10px;
+    left: calc(50% - 25px);
 }
 
-.facts .count-box a:hover {
-    color: #1f5297;
+.about .section-title p {
+    color: #ccc;
+    margin-top: 20px;
+}
+
+/* Profile Card */
+.profile-card {
+    background: #2C3034;
+    padding: 30px;
+    border-radius: 15px;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+    border-left: 4px solid #149ddd
+}
+
+.profile-img {
+    width: 200px;
+    height: 200px;
+    border: 5px solid #149ddd;
+    padding: 3px;
+}
+
+.profile-info h4 {
+    font-weight: 700;
+    margin-bottom: 5px;
+}
+
+.profile-info p {
+    color: #149ddd;
+    font-weight: 500;
+}
+
+.personal-info {
+    margin-top: 20px;
+}
+
+.info-item {
+    display: flex;
+    align-items: center;
+    margin-bottom: 12px;
+    padding: 8px 0;
+}
+
+.info-item i {
+    color: #149ddd;
+    font-size: 18px;
+    margin-right: 15px;
+    width: 20px;
+    text-align: center;
+}
+
+.info-item span {
+    color: #ccc;
+    font-size: 14px;
+}
+
+/* About Content */
+.about-content h3 {
+    font-weight: 700;
+    font-size: 26px;
+    color: #fff;
+}
+
+.bio-text p {
+    margin-bottom: 20px;
+    line-height: 1.8;
+    color: #ccc;
+    text-align: justify;
+}
+
+.bio-text strong {
+    color: #149ddd;
+}
+
+/* Skills Highlight */
+.skills-highlight {
+    background: #2C3034;
+    padding: 25px;
+    border-radius: 10px;
+    border-left: 4px solid #149ddd;
+}
+
+.skills-highlight h5 {
+    font-weight: 600;
+    font-size: 18px;
+}
+
+.skills-tags {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+}
+
+.skill-tag {
+    background: linear-gradient(135deg, #149ddd 0%, #1f5297 100%);
+    color: white;
+    padding: 6px 15px;
+    border-radius: 20px;
+    font-size: 0.85rem;
+    font-weight: 500;
+    transition: all 0.3s ease;
+}
+
+.skill-tag:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 5px 15px rgba(20, 157, 221, 0.3);
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+    .about {
+        padding: 60px 0;
+    }
+
+    .profile-card {
+        margin-bottom: 30px;
+        padding: 20px;
+    }
+
+    .profile-img {
+        width: 150px;
+        height: 150px;
+    }
+
+    .skills-tags {
+        justify-content: center;
+    }
+}
+
+@media (max-width: 576px) {
+    .about-content h3 {
+        font-size: 22px;
+    }
+
+    .bio-text p {
+        font-size: 14px;
+    }
 }

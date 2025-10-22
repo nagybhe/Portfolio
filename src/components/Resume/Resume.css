@@ -1,60 +1,302 @@
 /*--------------------------------------------------------------
 # Resume
 --------------------------------------------------------------*/
+.resume {
+    padding: 80px 0;
+    background: #212529;
+}
+
+.resume .section-title {
+    text-align: center;
+    padding-bottom: 30px;
+}
+
+.resume .section-title h2 {
+    font-size: 32px;
+    font-weight: 700;
+    text-transform: uppercase;
+    margin-bottom: 20px;
+    padding-bottom: 20px;
+    position: relative;
+    color: #ffffff;
+}
+
+.resume .section-title h2::after {
+    content: '';
+    position: absolute;
+    display: block;
+    width: 50px;
+    height: 3px;
+    background: #149ddd;
+    bottom: 0;
+    left: calc(50% - 25px);
+}
+
+.resume .section-title p {
+    margin-bottom: 0;
+    color: #cccccc;
+}
+
 .resume .resume-title {
     font-size: 26px;
     font-weight: 700;
-    margin-top: 20px;
+    margin-top: 30px;
     margin-bottom: 20px;
-    color: #050d18;
+    color: #ffffff;
+    padding-bottom: 10px;
+    border-bottom: 2px solid #343a40;
 }
 
+/* Resume Item Modernizado */
 .resume .resume-item {
-    padding: 0 0 20px 20px;
-    margin-top: -2px;
-    border-left: 2px solid #1f5297;
+    padding: 25px;
+    margin-bottom: 25px;
+    background: #2c3034;
+    border-radius: 10px;
+    box-shadow: 0 5px 25px rgba(0, 0, 0, 0.3);
+    border-left: 4px solid #149ddd;
+    transition: all 0.3s ease;
     position: relative;
 }
 
-.resume .resume-item h4 {
-    line-height: 18px;
-    font-size: 18px;
-    font-weight: 600;
-    text-transform: uppercase;
-    font-family: "Poppins", sans-serif;
-    color: #050d18;
-    margin-bottom: 10px;
+.resume .resume-item:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.4);
 }
 
-.resume .resume-item h5 {
-    font-size: 16px;
-    background: #e4edf9;
-    padding: 5px 15px;
-    display: inline-block;
+.resume .resume-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    margin-bottom: 15px;
+}
+
+.resume .resume-header h4 {
+    font-size: 18px;
     font-weight: 600;
-    margin-bottom: 10px;
+    color: #ffffff;
+    margin-bottom: 5px;
+    flex: 1;
+}
+
+.resume .resume-meta {
+    text-align: right;
+}
+
+.resume .resume-meta .company {
+    display: block;
+    font-weight: 600;
+    color: #149ddd;
+    font-size: 16px;
+}
+
+.resume .resume-meta .period {
+    display: block;
+    color: #adb5bd;
+    font-size: 14px;
+    margin-top: 5px;
+}
+
+.resume .resume-details {
+    margin-top: 10px;
+}
+
+.resume .job-info {
+    display: flex;
+    gap: 15px;
+    margin-bottom: 15px;
+    flex-wrap: wrap;
+}
+
+.resume .location,
+.resume .job-type {
+    background: #343a40;
+    padding: 4px 12px;
+    border-radius: 15px;
+    font-size: 12px;
+    color: #149ddd;
+    font-weight: 500;
 }
 
 .resume .resume-item ul {
     padding-left: 20px;
+    margin-bottom: 15px;
 }
 
 .resume .resume-item ul li {
+    padding-bottom: 8px;
+    color: #e9ecef;
+    line-height: 1.6;
+    position: relative;
+}
+
+.resume .resume-item ul li::before {
+    content: "▸";
+    color: #149ddd;
+    font-weight: bold;
+    display: inline-block;
+    width: 1em;
+    margin-left: -1em;
+}
+
+/* Technologies Tags */
+.resume .technologies {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+    margin-top: 15px;
+}
+
+.resume .tech-tag {
+    background: linear-gradient(135deg, #149ddd 0%, #1f5297 100%);
+    color: white;
+    padding: 4px 12px;
+    border-radius: 15px;
+    font-size: 0.75rem;
+    font-weight: 500;
+}
+
+/* Education Styles */
+.resume .course {
+    font-size: 16px;
+    font-weight: 600;
+    color: #ffffff;
+    margin-bottom: 10px;
+}
+
+.resume .education-meta {
+    display: flex;
+    gap: 15px;
+    flex-wrap: wrap;
+}
+
+.resume .degree-type {
+    background: #343a40;
+    padding: 4px 12px;
+    border-radius: 15px;
+    font-size: 12px;
+    color: #149ddd;
+    font-weight: 500;
+}
+
+.resume .status {
+    padding: 4px 12px;
+    border-radius: 15px;
+    font-size: 12px;
+    font-weight: 500;
+}
+
+.resume .status.concluído {
+    background: #155724;
+    color: #d4edda;
+}
+
+.resume .status.em-andamento {
+    background: #856404;
+    color: #fff3cd;
+}
+
+.resume .status.trancado {
+    background: #842029;
+    color: #f8d7da;
+}
+
+/* Certificates Container */
+.resume .certificates-container {
+    display: flex;
+    flex-direction: column;
+    gap: 25px;
+}
+
+.resume .certificate-category {
+    background: #2c3034;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 5px 20px rgba(0, 0, 0, 0.3);
+}
+
+.resume .category-title {
+    font-size: 18px;
+    font-weight: 600;
+    color: #149ddd;
+    margin-bottom: 15px;
     padding-bottom: 10px;
+    border-bottom: 2px solid #343a40;
 }
 
-.resume .resume-item:last-child {
-    padding-bottom: 0;
+.resume .certificates-grid {
+    display: grid;
+    gap: 12px;
 }
 
-.resume .resume-item::before {
-    content: "";
-    position: absolute;
-    width: 16px;
-    height: 16px;
-    border-radius: 50px;
-    left: -9px;
-    top: 0;
-    background: #fff;
-    border: 2px solid #1f5297;
+.resume .certificate-card {
+    background: #343a40;
+    padding: 15px;
+    border-radius: 8px;
+    box-shadow: 0 3px 15px rgba(0, 0, 0, 0.3);
+    border-left: 3px solid #149ddd;
+    transition: all 0.3s ease;
+}
+
+.resume .certificate-card:hover {
+    transform: translateX(5px);
+    box-shadow: 0 5px 20px rgba(0, 0, 0, 0.4);
+}
+
+.resume .certificate-content h5 {
+    font-size: 14px;
+    font-weight: 600;
+    color: #ffffff;
+    margin-bottom: 8px;
+    line-height: 1.4;
+}
+
+.resume .certificate-content .certificate-category {
+    background: #495057;
+    color: #149ddd;
+    padding: 2px 8px;
+    border-radius: 10px;
+    font-size: 0.7rem;
+    font-weight: 500;
+    display: inline-block;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+    .resume .resume-header {
+        flex-direction: column;
+        align-items: flex-start;
+    }
+
+    .resume .resume-meta {
+        text-align: left;
+        margin-top: 10px;
+    }
+
+    .resume .education-meta {
+        flex-direction: column;
+        gap: 8px;
+    }
+
+    .resume .technologies {
+        justify-content: flex-start;
+    }
+}
+
+@media (max-width: 576px) {
+    .resume {
+        padding: 60px 0;
+    }
+
+    .resume .resume-item {
+        padding: 20px;
+    }
+
+    .certificate-category {
+        padding: 15px;
+    }
+
+    .resume .certificate-card {
+        padding: 12px;
+    }
 }
