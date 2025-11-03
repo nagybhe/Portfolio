@@ -175,7 +175,7 @@ const Portfolio = () => {
             description: "Solução completa de Jenkins em Docker com 70+ plugins pré-configurados para automação de testes. Oferece setup instantâneo, suporte a Java/Python/Node.js, relatórios Allure e JUnit, e execução de containers em pipelines. Leia o README do projeto.",
             technologies: ["Docker", "Jenkins", "Java 17", "Python", "Node.js", "Maven", "Allure", "HTML Publisher", "playwright"],
             images: [
-                "/assets/img/thumbnail/Infraestrutura de Automação de QA Docker + Jenkins + CICD.png"
+                "/assets/img/thumbnail/Infraestrutura-De-Automacao.png"
             ],
             githubUrl: "https://github.com/nagybhe/QualityOps",
             startDate: "2025",
