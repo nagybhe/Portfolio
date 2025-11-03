@@ -99,7 +99,7 @@ const Portfolio = () => {
             ],
             projectUrl: "https://snack.expo.dev/@ins4nityhz/login---gerenciamento",
             startDate: "2020",
-            status: "Completo"
+            status: "Em progresso"
         },
         {
             id: 7,
@@ -167,6 +167,19 @@ const Portfolio = () => {
             githubUrl: "https://github.com/nagybhe/Discord-for-rocket.chat",
             startDate: "2020",
             status: "Completo"
+        },
+        {
+            id: 12,
+            title: "Infraestrutura de Automação de QA: Docker + Jenkins + CI/CD",
+            category: "filter-web",
+            description: "Solução completa de Jenkins em Docker com 70+ plugins pré-configurados para automação de testes. Oferece setup instantâneo, suporte a Java/Python/Node.js, relatórios Allure e JUnit, e execução de containers em pipelines. Leia o README do projeto.",
+            technologies: ["Docker", "Jenkins", "Java 17", "Python", "Node.js", "Maven", "Allure", "HTML Publisher", "playwright"],
+            images: [
+                "/assets/img/thumbnail/Infraestrutura de Automação de QA Docker + Jenkins + CICD.png"
+            ],
+            githubUrl: "https://github.com/nagybhe/QualityOps",
+            startDate: "2025",
+            status: "Em progresso"
         }
     ];
 
