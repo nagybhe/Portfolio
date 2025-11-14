@@ -29,150 +29,93 @@ const Resume = () => {
     const certificates = [
         {
             name: 'Orchestrator Admin: Automation Management with ElectroNeek Orchestrator',
-            category: 'RPA & Automação'
+            category: 'Desenvolvimento Back-end & Automação'
         },
         {
             name: 'RPA Developer: Automation Development in ElectroNeek Studio Pro',
-            category: 'RPA & Automação'
-        },
-        {
-            name: 'Cybersecurity',
-            category: 'Segurança Cibernética'
+            category: 'Desenvolvimento Back-end & Automação'
         },
         {
             name: 'DevOps & Agile Culture',
-            category: 'Metodologias Ágeis'
+            category: 'Metodologias & Ferramentas QA'
         },
         {
             name: 'Projetos Ágeis com Scrum',
-            category: 'Metodologias Ágeis'
+            category: 'Metodologias & Ferramentas QA'
         },
         {
             name: 'Fundamentos em Gestão por OKRs',
-            category: 'Metodologias Ágeis'
+            category: 'Metodologias & Ferramentas QA'
         },
         {
             name: 'User Experience',
-            category: 'Design & UX'
+            category: 'Desenvolvimento Front-end'
         },
         {
             name: 'Conceitos de Responsividade e Experiência do Usuário',
-            category: 'Design & UX'
+            category: 'Desenvolvimento Front-end'
         },
         {
             name: 'Programação para internet com JavaScript',
-            category: 'Desenvolvimento'
+            category: 'Desenvolvimento Front-end'
         },
         {
             name: 'Lógica de programação essencial',
-            category: 'Desenvolvimento'
+            category: 'Desenvolvimento Front-end'
         },
         {
             name: 'Introdução a banco de dados com MySQL & PHPMyAdmin',
-            category: 'Banco de Dados'
+            category: 'Desenvolvimento Back-end & Automação'
         },
         {
             name: 'Arquitetura de Sistemas',
-            category: 'Arquitetura & Cloud'
+            category: 'Desenvolvimento Back-end & Automação'
         },
         {
             name: 'Fundamentos de Arquitetura de Sistemas',
-            category: 'Arquitetura & Cloud'
+            category: 'Desenvolvimento Back-end & Automação'
         },
         {
             name: 'Cloud Computing & Serverless',
-            category: 'Arquitetura & Cloud'
+            category: 'Desenvolvimento Back-end & Automação'
         },
         {
             name: 'Fundamentos da Computação em Nuvem',
-            category: 'Arquitetura & Cloud'
+            category: 'Desenvolvimento Back-end & Automação'
         },
         {
             name: 'Fundamentos do Azure',
-            category: 'Arquitetura & Cloud'
+            category: 'Desenvolvimento Back-end & Automação'
         },
         {
             name: 'Introdução aos Conceitos de Serverless e Azure Functions',
-            category: 'Arquitetura & Cloud'
+            category: 'Desenvolvimento Back-end & Automação'
         },
         {
             name: 'Desenvolvimento de software com Azure Static Web Apps e GitHub Actions',
-            category: 'Arquitetura & Cloud'
+            category: 'Desenvolvimento Back-end & Automação'
         },
         {
             name: 'Linux: A introdução ao sistema operacional',
-            category: 'Sistemas & Infraestrutura'
+            category: 'Desenvolvimento Back-end & Automação'
         },
         {
             name: 'Criando um repositório para seus projetos inovadores',
-            category: 'Ferramentas & Versionamento'
+            category: 'Desenvolvimento Back-end & Automação'
         },
         {
-            name: 'Atendimento Surpreendente ao Cliente - Customer Service/SAC',
-            category: 'Customer Success & Vendas'
+            name: 'Engenharia de Software',
+            category: 'Qualidade de Software & Testes'
         },
         {
-            name: 'O Sucesso da Retenção de Clientes no Pós-Venda',
-            category: 'Customer Success & Vendas'
+            name: 'Cybersecurity',
+            category: 'Qualidade de Software & Testes'
         },
         {
-            name: 'Fundamentos de Customer Success para Analistas',
-            category: 'Customer Success & Vendas'
-        },
-        {
-            name: 'Fundamentos em Experiência do Cliente',
-            category: 'Customer Success & Vendas'
-        },
-        {
-            name: 'Gatilhos Mentais em Vendas',
-            category: 'Customer Success & Vendas'
-        },
-        {
-            name: 'Vendas Pelo WhatsApp',
-            category: 'Customer Success & Vendas'
-        },
-        {
-            name: 'SMS Expert',
-            category: 'Customer Success & Vendas'
-        },
-        {
-            name: 'G4 Startups',
-            category: 'Empreendedorismo'
-        },
-        {
-            name: 'Entrepreneurship',
-            category: 'Empreendedorismo'
-        },
-        {
-            name: 'Inteligência Emocional',
-            category: 'Soft Skills'
-        },
-        {
-            name: 'Pensamento Crítico',
-            category: 'Soft Skills'
-        },
-        {
-            name: 'Fundamentos em Liderança',
-            category: 'Soft Skills'
-        },
-        {
-            name: 'Gente e Cultura 4.0',
-            category: 'Gestão & Negócios'
-        },
-        {
-            name: 'Indicadores e Métricas',
-            category: 'Gestão & Negócios'
-        },
-        {
-            name: 'Fundamentos em Finanças',
-            category: 'Gestão & Negócios'
-        },
-        {
-            name: 'Experiência do Cliente',
-            category: 'Customer Success & Vendas'
+            name: 'Introdução ao Teste de Software',
+            category: 'Qualidade de Software & Testes'
         }
     ];
-
     // Agrupar certificações por categoria
     const groupedCertificates = certificates.reduce((acc, cert) => {
         if (!acc[cert.category]) {
@@ -183,6 +126,25 @@ const Resume = () => {
     }, {});
 
     const experiences = [
+        {
+            title: 'Quality Analyst(QA)',
+            company: 'Freelance',
+            period: '2025 - até o momento',
+            location: 'Remota',
+            type: 'Tempo integral',
+            responsibilities: [
+                'Planejamento, execução e automação de testes funcionais, regressão e integração',
+                'Desenvolvimento e manutenção de testes automatizados com Cypress, Playwright e Robot Framework',
+                'Execução de testes de performance e carga utilizando K6 e Artillery',
+                'Criação e otimização de pipelines CI/CD integrados ao Jenkins',
+                'Aplicação de BDD com Gherkin para definição de cenários e melhoria da rastreabilidade',
+                'Acompanhamento do ciclo de vida de bugs, garantindo priorização e correção eficiente',
+                'Validação de requisitos funcionais e não funcionais junto ao time de produto e desenvolvimento',
+                'Versionamento, revisão de código e boas práticas de QAOps com Git',
+                'Colaboração ativa em cerimônias ágeis (Scrum/Kanban) e alinhamento com stakeholders',
+            ],
+            technologies: ['Cypress', 'Playwright', 'Robot Framework', 'K6', 'Artillery', 'Jenkins', 'Git', 'BDD', 'Gherkin']
+        },
         {
             title: 'Analista de Requisitos (PO)',
             company: 'MSB Tecnologia',

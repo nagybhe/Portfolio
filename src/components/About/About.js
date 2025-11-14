@@ -29,7 +29,7 @@ const About = () => {
                                     </div>
                                     <div className="info-item">
                                         <i className="bx bx-envelope"></i>
-                                        <span>Ins4nityhz@gmail.com</span>
+                                        <span>andre.nagybhe.ramos@gmail.com</span>
                                     </div>
                                     <div className="info-item">
                                         <i className="bx bx-cake"></i>
@@ -42,59 +42,66 @@ const About = () => {
 
                     <div className="col-lg-8 pt-4 pt-lg-0 content" data-aos="fade-left">
                         <div className="about-content">
-                            <h3 className="text-white mb-4">Desenvolvedor & Especialista em Qualidade de Software</h3>
+                            <h3 className="text-white mb-4">Especialista em Qualidade de Software & QA</h3>
 
                             <div className="bio-text">
                                 <p>
                                     Formado em <strong>Sistemas para Internet</strong> pela Faculdade Meta e atualmente
-                                    cursando pós-graduação em <strong>Engenharia de Software</strong>, aprofundando conhecimentos
-                                    em desenvolvimento, arquitetura e qualidade de sistemas.
+                                    cursando pós-graduação em <strong>Engenharia de Software</strong>, com foco em
+                                    arquitetura de testes, qualidade de software e processos de garantia da qualidade.
                                 </p>
 
                                 <p>
-                                    Minha trajetória começou em <strong>Customer Success</strong>, atuando como Head com foco em
-                                    retenção, onboarding estratégico e redução de churn. Essa experiência me proporcionou
-                                    uma visão centrada no cliente e reforçou a importância da qualidade em todas as etapas
-                                    do ciclo de vida do produto.
+                                    Minha trajetória em <strong>Customer Success</strong> me proporcionou uma visão
+                                    centrada no usuário final, compreendendo profundamente a importância da qualidade
+                                    em todas as etapas do ciclo de vida do produto e como bugs impactam a experiência do cliente.
                                 </p>
 
                                 <p>
-                                    Migrei para a área técnica, especializando-me como <strong>RPA Developer</strong> em paralelo
-                                    com <strong>Quality Assurance</strong>. Tenho experiência com testes manuais e automatizados,
-                                    integrações via API, Quality Analytics, além de atuar em Pentests White Box e Gray Box.
+                                    Atuo como <strong>Quality Assurance Engineer</strong> com expertise em:
+                                    <strong> testes manuais e automatizados</strong>,
+                                    <strong> desenvolvimento de frameworks de teste</strong>,
+                                    <strong> integrações via API</strong>, e
+                                    <strong> Quality Analytics</strong>. Experiência em Pentests White Box e Gray Box
+                                    para validação de segurança em aplicações.
                                 </p>
 
                                 <p>
-                                    Participei de projetos de automação de processos e testes de APIs, sempre com foco em
+                                    Participei de projetos de automação de testes e processos, sempre com foco em
                                     confiabilidade, segurança e escalabilidade. Em 2024, conquistei o
-                                    <strong> 1º lugar no Hackathon Gamefica (TITCS)</strong>, reforçando minha capacidade de
-                                    inovação, colaboração e entrega sob pressão.
+                                    <strong> 1º lugar no Hackathon Gamefica (TITCS)</strong>, demonstrando capacidade de
+                                    inovação e entrega de qualidade sob pressão.
                                 </p>
 
                                 <p>
-                                    Como atleta de alto rendimento e <strong>faixa preta em judô</strong>, desenvolvi disciplina,
-                                    resiliência e pensamento estratégico - características que aplico diariamente no
-                                    ambiente profissional.
+                                    Como <strong>faixa preta em judô e atleta de alto rendimento</strong>, desenvolvi
+                                    disciplina, resiliência e pensamento estratégico - habilidades que aplico na
+                                    metodologia de testes, na antecipação de riscos e na busca constante pela excelência.
                                 </p>
                             </div>
 
                             <div className="skills-highlight mt-4">
-                                <h5 className="text-white mb-3">Especializações Técnicas</h5>
+                                <h5 className="text-white mb-3">Especializações em QA & Testing</h5>
                                 <div className="skills-tags">
-                                    <span className="skill-tag">QA Engineer</span>
+                                    <span className="skill-tag">QA Engineering</span>
                                     <span className="skill-tag">Test Automation</span>
                                     <span className="skill-tag">Cypress</span>
                                     <span className="skill-tag">Playwright</span>
+                                    <span className="skill-tag">Selenium WebDriver</span>
                                     <span className="skill-tag">Robot Framework</span>
-                                    <span className="skill-tag">Selenium</span>
-                                    <span className="skill-tag">PHPUnit</span>
-                                    <span className="skill-tag">Jest</span>
-                                    <span className="skill-tag">Load Testing (K6)</span>
-                                    <span className="skill-tag">Node.js</span>
-                                    <span className="skill-tag">JavaScript</span>
-                                    <span className="skill-tag">TypeScript</span>
-                                    <span className="skill-tag">Laravel</span>
-                                    <span className="skill-tag">Software Engineering</span>
+                                    <span className="skill-tag">API Testing</span>
+                                    <span className="skill-tag">Postman</span>
+                                    <span className="skill-tag">Performance Testing</span>
+                                    <span className="skill-tag">K6</span>
+                                    <span className="skill-tag">Artillery</span>
+                                    <span className="skill-tag">BDD</span>
+                                    <span className="skill-tag">Gherkin</span>
+                                    <span className="skill-tag">CI/CD Pipelines</span>
+                                    <span className="skill-tag">Jenkins</span>
+                                    <span className="skill-tag">Git</span>
+                                    <span className="skill-tag">QAOps</span>
+                                    <span className="skill-tag">Test Strategy</span>
+                                    <span className="skill-tag">Quality Metrics</span>
                                 </div>
                             </div>
                         </div>

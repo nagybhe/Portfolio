@@ -4,44 +4,51 @@ import './Skills.css';
 const Skills = () => {
     const skillsByCategory = [
         {
-            category: 'Desenvolvimento Front-end & Design',
+            category: 'Qualidade de Software & Testes',
+            skills: [
+                { name: 'Testes Manuais', percentage: 100 },
+                { name: 'Testes Automatizados', percentage: 70 },
+                { name: 'Testes de Performance', percentage: 70 },
+                { name: 'Testes de API', percentage: 70 },
+                { name: 'Playwright', percentage: 80 },
+                { name: 'Cypress', percentage: 80 },
+                { name: 'K6 | Artillery', percentage: 70 },
+                { name: 'Testes Mobile', percentage: 50 }
+            ]
+        },
+        {
+            category: 'Desenvolvimento Front-end',
             skills: [
                 { name: 'HTML5', percentage: 100 },
                 { name: 'CSS3', percentage: 100 },
-                { name: 'Framework Bootstrap', percentage: 100 },
-                { name: 'JavaScript', percentage: 80 },
-                { name: 'React Native', percentage: 70 },
-                { name: 'Figma', percentage: 100 },
-                { name: 'Adobe Photoshop', percentage: 100 },
-                { name: 'Adobe Illustrator', percentage: 100 }
+                { name: 'JavaScript', percentage: 85 },
+                { name: 'React.js', percentage: 80 },
+                { name: 'TypeScript', percentage: 75 },
+                { name: 'Bootstrap', percentage: 90 },
+                { name: 'Responsive Design', percentage: 95 }
             ]
         },
         {
-            category: 'Desenvolvimento Back-end & Infraestrutura',
+            category: 'Desenvolvimento Back-end & Automação',
             skills: [
-                { name: 'Node.js', percentage: 80 },
-                { name: 'PHP', percentage: 70 },
-                { name: 'Banco de Dados', percentage: 70 },
-                { name: 'RPA (Robotic Process Automation)', percentage: 90 },
-                { name: 'GitHub | GitLab', percentage: 90 }
+                { name: 'Node.js', percentage: 70 },
+                { name: 'PHP | Laravel', percentage: 50 },
+                { name: 'SQL / Banco de Dados', percentage: 50 },
+                { name: 'APIs REST', percentage: 60 },
+                { name: 'RPA (Robotic Process Automation)', percentage: 80 },
+                { name: 'Git | Versionamento', percentage: 80 }
             ]
         },
         {
-            category: 'Gestão & Metodologias',
+            category: 'Metodologias & Ferramentas QA',
             skills: [
                 { name: 'Metodologias Ágeis', percentage: 100 },
-                { name: 'Gestão de Projetos', percentage: 80 },
-                { name: 'Análise de Dados e Relatórios', percentage: 100 },
-                { name: 'Resolução de Problemas Técnicos', percentage: 100 }
-            ]
-        },
-        {
-            category: 'Customer Success & Suporte',
-            skills: [
-                { name: 'Plataformas de Suporte e CRMs', percentage: 100 },
-                { name: 'Sistemas de Tickets', percentage: 100 },
-                { name: 'Suporte por Canal Específico', percentage: 100 },
-                { name: 'Compreensão de Produtos/Serviços', percentage: 100 }
+                { name: 'Test Case Design', percentage: 100 },
+                { name: 'Test Management', percentage: 90 },
+                { name: 'JIRA | ClickUp', percentage: 80 },
+                { name: 'Bug Tracking', percentage: 90 },
+                { name: 'CI/CD | Pipelines | Jenkins', percentage: 80 },
+
             ]
         }
     ];
@@ -75,7 +82,7 @@ const Skills = () => {
             <div className="container">
                 <div className="section-title">
                     <h2>Hard Skills</h2>
-                    <p>Minhas competências técnicas e profissionais</p>
+                    <p>Competências técnicas em Qualidade de Software e Desenvolvimento</p>
                 </div>
 
                 <div className="skills-container">
