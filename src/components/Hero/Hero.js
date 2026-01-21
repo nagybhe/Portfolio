@@ -12,9 +12,9 @@ const Hero = () => {
 
         const typed = new Typed(typedRef.current, {
             strings: [
-                'QA Engineer & Software Developer',
-                'Especialista em Automação de Testes',
-                'Desenvolvedor RPA & Back-end',
+                'QA Automation Engineer',
+                'Test Automation Specialist',
+                'Software Developer',
             ],
             typeSpeed: 50,
             backSpeed: 30,

@@ -114,6 +114,14 @@ const Resume = () => {
         {
             name: 'Introdução ao Teste de Software',
             category: 'Qualidade de Software & Testes'
+        },
+        {
+            name: 'Quality Assurance (QA) - Automação',
+            category: 'Qualidade de Software & Testes'
+        },
+        {
+            name: 'Testes de software',
+            category: 'Qualidade de Software & Testes'
         }
     ];
     // Agrupar certificações por categoria
