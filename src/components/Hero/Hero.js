@@ -14,7 +14,7 @@ const Hero = () => {
             strings: [
                 'QA Automation Engineer',
                 'Test Automation Specialist',
-                'Software Developer',
+                'Software Quality Engineer',
             ],
             typeSpeed: 50,
             backSpeed: 30,

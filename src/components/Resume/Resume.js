@@ -49,19 +49,19 @@ const Resume = () => {
         },
         {
             name: 'User Experience',
-            category: 'Desenvolvimento Front-end'
+            category: 'Fundamentos de Desenvolvimento'
         },
         {
             name: 'Conceitos de Responsividade e Experiência do Usuário',
-            category: 'Desenvolvimento Front-end'
+            category: 'Fundamentos de Desenvolvimento'
         },
         {
             name: 'Programação para internet com JavaScript',
-            category: 'Desenvolvimento Front-end'
+            category: 'Fundamentos de Desenvolvimento'
         },
         {
             name: 'Lógica de programação essencial',
-            category: 'Desenvolvimento Front-end'
+            category: 'Fundamentos de Desenvolvimento'
         },
         {
             name: 'Introdução a banco de dados com MySQL & PHPMyAdmin',
@@ -135,23 +135,23 @@ const Resume = () => {
 
     const experiences = [
         {
-            title: 'Quality Analyst(QA)',
+            title: 'QA Automation Engineer',
             company: 'Freelance',
             period: '2025 - até o momento',
             location: 'Remota',
             type: 'Tempo integral',
             responsibilities: [
-                'Planejamento, execução e automação de testes funcionais, regressão e integração',
+                'Planejamento e execução de testes funcionais, regressão e integração garantindo qualidade do software',
                 'Desenvolvimento e manutenção de testes automatizados com Cypress, Playwright e Robot Framework',
                 'Execução de testes de performance e carga utilizando K6 e Artillery',
                 'Criação e otimização de pipelines CI/CD integrados ao Jenkins',
                 'Aplicação de BDD com Gherkin para definição de cenários e melhoria da rastreabilidade',
                 'Acompanhamento do ciclo de vida de bugs, garantindo priorização e correção eficiente',
                 'Validação de requisitos funcionais e não funcionais junto ao time de produto e desenvolvimento',
-                'Versionamento, revisão de código e boas práticas de QAOps com Git',
+                'Versionamento de testes automatizados e colaboração em revisão de código utilizando Git',
                 'Colaboração ativa em cerimônias ágeis (Scrum/Kanban) e alinhamento com stakeholders',
             ],
-            technologies: ['Cypress', 'Playwright', 'Robot Framework', 'K6', 'Artillery', 'Jenkins', 'Git', 'BDD', 'Gherkin']
+            technologies: ['Cypress', 'Playwright', 'Robot Framework', 'K6', 'Artillery', 'Jenkins', 'Git', 'BDD', 'Gherkin', 'API Testing']
         },
         {
             title: 'Analista de Requisitos (PO)',
@@ -172,7 +172,7 @@ const Resume = () => {
             technologies: ['Jira', 'Confluence', 'Trello', 'Redmine', 'Lucidchart', 'Visio', 'Scrum', 'Kanban']
         },
         {
-            title: 'Back-end Developer (RPA)',
+            title: 'Automation Developer (RPA)',
             company: 'Tributei',
             period: '2023 - 2025',
             location: 'Híbrido',

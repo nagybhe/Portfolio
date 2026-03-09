@@ -3,55 +3,44 @@ import './Skills.css';
 
 const Skills = () => {
     const skillsByCategory = [
-        {
-            category: 'Qualidade de Software & Testes',
-            skills: [
-                { name: 'Testes Manuais', percentage: 100 },
-                { name: 'Testes Automatizados', percentage: 70 },
-                { name: 'Testes de Performance', percentage: 70 },
-                { name: 'Testes de API', percentage: 70 },
-                { name: 'Playwright', percentage: 80 },
-                { name: 'Cypress', percentage: 80 },
-                { name: 'K6 | Artillery', percentage: 70 },
-                { name: 'Testes Mobile', percentage: 50 }
-            ]
-        },
-        {
-            category: 'Desenvolvimento Front-end',
-            skills: [
-                { name: 'HTML5', percentage: 100 },
-                { name: 'CSS3', percentage: 100 },
-                { name: 'JavaScript', percentage: 85 },
-                { name: 'React.js', percentage: 80 },
-                { name: 'TypeScript', percentage: 75 },
-                { name: 'Bootstrap', percentage: 90 },
-                { name: 'Responsive Design', percentage: 95 }
-            ]
-        },
-        {
-            category: 'Desenvolvimento Back-end & Automação',
-            skills: [
-                { name: 'Node.js', percentage: 70 },
-                { name: 'PHP | Laravel', percentage: 50 },
-                { name: 'SQL / Banco de Dados', percentage: 50 },
-                { name: 'APIs REST', percentage: 60 },
-                { name: 'RPA (Robotic Process Automation)', percentage: 80 },
-                { name: 'Git | Versionamento', percentage: 80 }
-            ]
-        },
-        {
-            category: 'Metodologias & Ferramentas QA',
-            skills: [
-                { name: 'Metodologias Ágeis', percentage: 100 },
-                { name: 'Test Case Design', percentage: 100 },
-                { name: 'Test Management', percentage: 90 },
-                { name: 'JIRA | ClickUp', percentage: 80 },
-                { name: 'Bug Tracking', percentage: 90 },
-                { name: 'CI/CD | Pipelines | Jenkins', percentage: 80 },
-
-            ]
-        }
-    ];
+{
+    category: 'Automação de Testes',
+    skills: [
+        { name: 'Playwright', percentage: 80 },
+        { name: 'Cypress', percentage: 80 },
+        { name: 'Robot Framework', percentage: 70 },
+        { name: 'Testes Automatizados', percentage: 70 }
+    ]
+},
+{
+    category: 'Testes de Software',
+    skills: [
+        { name: 'Testes Manuais', percentage: 100 },
+        { name: 'Testes de API', percentage: 70 },
+        { name: 'Testes de Performance', percentage: 70 },
+        { name: 'Testes Mobile', percentage: 50 }
+    ]
+},
+{
+    category: 'Ferramentas & QAOps',
+    skills: [
+        { name: 'Git', percentage: 80 },
+        { name: 'CI/CD', percentage: 80 },
+        { name: 'Jenkins', percentage: 70 },
+        { name: 'K6', percentage: 70 },
+        { name: 'Artillery', percentage: 70 }
+    ]
+},
+{
+    category: 'Fundamentos Técnicos',
+    skills: [
+        { name: 'JavaScript', percentage: 85 },
+        { name: 'Node.js', percentage: 70 },
+        { name: 'APIs REST', percentage: 60 },
+        { name: 'SQL / Banco de Dados', percentage: 50 }
+    ]
+}
+];
 
     const SkillCard = ({ category, skills }) => (
         <div className="skill-category" data-aos="fade-up">
@@ -82,7 +71,7 @@ const Skills = () => {
             <div className="container">
                 <div className="section-title">
                     <h2>Hard Skills</h2>
-                    <p>Competências técnicas em Qualidade de Software e Desenvolvimento</p>
+                    <p>Competências técnicas em Qualidade de Software, Automação de Testes e Engenharia de Testes</p>
                 </div>
 
                 <div className="skills-container">
