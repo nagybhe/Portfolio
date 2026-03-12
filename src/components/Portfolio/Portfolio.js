@@ -169,6 +169,18 @@ const Portfolio = () => {
             startDate: "2026",
             endDate: "2026",
             status: "Em progresso"
+        },
+        {
+            id: 14,
+            title: "Desafio Técnico - Desenvolvedor Full Stack - Tributei",
+            category: "filter-Challenges",
+            description: "Este repositório apresenta o Tributei - Sistema de Entregas, uma aplicação full stack desenvolvida para desafio técnico da Tributei. O sistema permite cadastrar entregas com busca automática de endereço via OpenStreetMap, visualizar em mapa interativo com Leaflet e gerenciar em tabela com busca e paginação em tempo real. Inclui modais de confirmação, alertas elegantes com Material-UI, API RESTful com Node.js/Express, banco MySQL em Docker e design responsivo com as cores institucionais #00AA45 e #00AA83.",
+            technologies: ["React.js", "Node.js", "Express", "MySQL", "Sequelize", "Leaflet", "Material-UI", "Docker", "OpenStreetMap"],
+            images: ["/assets/img/thumbnail/Tributei.png"],
+            githubUrl: "https://github.com/nagybhe/Desafio-Pratico-TRIBUTEI",
+            startDate: "2019",
+            endDate: "2019",
+            status: "Completo"
         }
 
     ];
