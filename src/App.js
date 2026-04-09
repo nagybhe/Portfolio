@@ -3,6 +3,7 @@ import AOS from 'aos';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import 'aos/dist/aos.css';
 import './App.css';
+import { Analytics } from "@vercel/analytics/react";
 
 // Import dos componentes
 import Header from './components/Header/Header';
@@ -11,7 +12,7 @@ import About from './components/About/About';
 import Skills from './components/Skills/Skills';
 import Resume from './components/Resume/Resume';
 import Portfolio from './components/Portfolio/Portfolio';
-import ContactModal from './components/ContactModal/ContactModal'; // ← APENAS O MODAL
+import ContactModal from './components/ContactModal/ContactModal';
 
 function App() {
     const [showContactModal, setShowContactModal] = useState(false);
@@ -27,17 +28,15 @@ function App() {
 
     return (
         <div className="App">
+            <Analytics />
             <Header onContactClick={() => setShowContactModal(true)} />
-
             <main id="main">
                 <Hero />
                 <About />
                 <Skills />
                 <Resume />
                 <Portfolio />
-                {/* REMOVIDO: <ContactUs /> */}
             </main>
-
             <ContactModal
                 show={showContactModal}
                 handleClose={() => setShowContactModal(false)}
