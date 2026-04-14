@@ -271,6 +271,26 @@ const Portfolio = () => {
       endDate: "2026",
       status: "Completo",
     },
+    {
+      "id": 16,
+      "title": "Desafio Técnico - QA Engineer - IDwall",
+      "category": "filter-Challenges",
+      "description": "Desafio técnico completo para QA Engineer na IDwall, abrangendo três frentes de teste: Web (Blog IDwall), API de relatórios e Mobile (App ID Dog). Inclui planejamento de testes com Gherkin, execução manual com 27 cenários (100% aprovados), automação Web com Playwright para busca de posts, automação de API com Playwright validando cenários síncronos e assíncronos (dados vazios, divergentes e válidos), e automação Mobile com WebdriverIO para exibição de fotos de cães (Husky, Hound, Labrador, Pug). Contém pipeline CI/CD com Jenkins, relatórios HTML, análise de riscos, bug reports, .env para token seguro, e estrutura organizada para fácil execução local ou em CI.",
+      "technologies": [
+        "Playwright",
+        "WebdriverIO",
+        "Appium",
+        "TypeScript",
+        "Jenkins",
+        "Gherkin",
+        "Node.js"
+      ],
+      "images": ["assets/img/thumbnail/IDWALL.png"],
+      "githubUrl": "https://github.com/nagybhe/Desafio-QA-Engineer-IDWALL",
+      "startDate": "2026",
+      "endDate": "2026",
+      "status": "Completo"
+    }
   ];
 
   const filteredProjects =
