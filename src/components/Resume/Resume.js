@@ -135,9 +135,32 @@ const Resume = () => {
 
     const experiences = [
         {
+            title: 'Quality Analyst (QA) Level II',
+            company: 'ArcH',
+            period: '2026 - Até o momento',
+            location: 'Remota',
+            type: 'Tempo integral',
+            responsibilities: [
+                'Atuação como Quality Analyst Level II em projetos enterprise, garantindo qualidade funcional, técnica e excelência do código-fonte',
+                'Planejamento e execução de testes de caixa branca, caixa preta e caixa cinza em conjunto com a equipe de desenvolvimento',
+                'Análise de qualidade de código utilizando .NET Core, JavaScript e React',
+                'Execução de testes de integração com SQL Server, PostgreSQL e MongoDB',
+                'Gerenciamento de issues, pipelines CI/CD e fluxo de qualidade utilizando GitLab',
+                'Rastreamento de tarefas, bugs e acompanhamento do fluxo de QA através do Runrun.it',
+                'Análise arquitetural e validação estrutural utilizando MDL, UML e Archimate',
+                'Execução de testes de performance e carga utilizando K6 e Artillery',
+                'Aplicação de BDD, TDD e Gherkin para definição de cenários de testes e critérios de aceite',
+                'Automação de testes com Cypress e Playwright para garantir entregas confiáveis e escaláveis',
+                'Execução de testes manuais exploratórios e validação de fluxos complexos',
+                'Validação de requisitos funcionais e não funcionais junto ao time de produto e desenvolvimento',
+                'Colaboração ativa em cerimônias ágeis (Scrum/Kanban) e alinhamento com stakeholders'
+            ],
+            technologies: ['.NET Core','JavaScript','React','SQL Server','PostgreSQL','MongoDB','GitLab','Runrun.it','MDL','UML','Archimate','Cypress','Playwright','K6','Artillery','BDD','TDD','Gherkin','CI/CD','API Testing']
+        },
+        {
             title: 'QA Automation Engineer',
             company: 'Freelance',
-            period: '2025 - até o momento',
+            period: '2025 - 2026',
             location: 'Remota',
             type: 'Tempo integral',
             responsibilities: [

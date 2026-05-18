@@ -33,7 +33,7 @@ const About = () => {
                                     </div>
                                     <div className="info-item">
                                         <i className="bx bx-cake"></i>
-                                        <span>27 Anos</span>
+                                        <span>28 Anos</span>
                                     </div>
                                 </div>
                             </div>
