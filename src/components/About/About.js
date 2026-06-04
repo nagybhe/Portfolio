@@ -2,6 +2,7 @@ import React from 'react';
 import './About.css';
 
 const About = () => {
+    
     return (
         <section id="about" className="about bg-dark text-white">
             <div className="container">
