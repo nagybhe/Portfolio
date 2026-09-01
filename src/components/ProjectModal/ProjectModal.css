@@ -1,31 +1,13 @@
-/* ProjectModal.css - Atualizado */
-.project-modal .modal-content {
-    border-radius: 15px;
-    border: none;
-    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
-}
-
-.project-modal .modal-header-custom {
-    background: linear-gradient(135deg, #149ddd 0%, #1f5297 100%);
-    color: white;
-    border-bottom: none;
-    border-radius: 15px 15px 0 0;
-}
-
-.project-modal .modal-header-custom .btn-close {
-    filter: invert(1);
-    opacity: 0.8;
-}
-
-.project-modal .modal-header-custom .btn-close:hover {
-    opacity: 1;
-}
+/*--------------------------------------------------------------
+# ProjectModal — a base de vidro vem de .glass-modal (App.css)
+--------------------------------------------------------------*/
 
 .project-info {
-    background: #f8f9fa;
     padding: 20px;
-    border-radius: 10px;
-    border-left: 4px solid #149ddd;
+    border-radius: 14px;
+    border: 1px solid var(--glass-border);
+    border-left: 3px solid var(--accent);
+    background: rgba(255, 255, 255, 0.045);
 }
 
 .project-info ul {
@@ -35,10 +17,13 @@
 }
 
 .project-info li {
-    padding: 8px 0;
-    border-bottom: 1px solid #e9ecef;
     display: flex;
     justify-content: space-between;
+    gap: 12px;
+    padding: 10px 0;
+    font-size: 14px;
+    color: #d7dde3;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.07);
 }
 
 .project-info li:last-child {
@@ -46,9 +31,12 @@
 }
 
 .project-info strong {
-    color: #149ddd;
+    color: var(--accent-soft);
+    font-weight: 600;
+    white-space: nowrap;
 }
 
+/* Chips iguais aos de Hard Skills. */
 .tech-tags {
     display: flex;
     flex-wrap: wrap;
@@ -57,126 +45,131 @@
 }
 
 .tech-tag {
-    background: linear-gradient(135deg, #149ddd 0%, #1f5297 100%);
-    color: white;
-    padding: 4px 12px;
-    border-radius: 20px;
-    font-size: 0.8rem;
-    font-weight: 500;
-    transition: transform 0.2s;
+    display: inline-flex;
+    align-items: center;
+    padding: 7px 14px;
+    border-radius: 30px;
+    font-size: 12.5px;
+    font-weight: 600;
+    color: #e8edf2;
+    background: rgba(20, 157, 221, 0.2);
+    border: 1px solid rgba(20, 157, 221, 0.5);
+    transition: transform 0.25s ease, background 0.25s ease;
 }
 
 .tech-tag:hover {
     transform: translateY(-2px);
+    background: rgba(20, 157, 221, 0.34);
 }
 
-.project-modal .carousel-item img {
-    border-radius: 10px;
-    max-height: 400px;
-    object-fit: contain;
-    background: #f8f9fa;
+.project-description p,
+.detailed-description p {
+    color: #d7dde3;
+    line-height: 1.7;
+    font-size: 14.5px;
 }
 
-.carousel-control-prev-icon,
-.carousel-control-next-icon {
-    background-color: #149ddd;
-    border-radius: 50%;
-    padding: 10px;
-}
-
-.project-description h5,
-.project-features h5,
-.project-technologies h5 {
-    color: #149ddd;
-    border-bottom: 2px solid #149ddd;
-    padding-bottom: 5px;
-    margin-bottom: 15px;
+.detailed-description {
+    padding: 15px 18px;
+    border-radius: 12px;
+    background: rgba(255, 255, 255, 0.04);
+    border-left: 3px solid rgba(20, 157, 221, 0.55);
 }
 
 .features-list {
     list-style: none;
     padding: 0;
+    margin: 0;
 }
 
 .features-list li {
-    padding: 5px 0;
     position: relative;
-    padding-left: 20px;
+    padding: 6px 0 6px 20px;
+    color: #d7dde3;
+    line-height: 1.65;
+    font-size: 14.5px;
 }
 
-.features-list li:before {
+.features-list li::before {
     content: "▸";
-    color: #149ddd;
+    color: var(--accent);
     position: absolute;
     left: 0;
 }
 
-.video-container {
-    background: #f8f9fa;
-    padding: 20px;
-    border-radius: 10px;
-    border: 2px solid #e9ecef;
+/* Carousel */
+.project-modal .carousel-item img {
+    border-radius: 12px;
+    max-height: 400px;
+    object-fit: contain;
+    background: rgba(0, 0, 0, 0.35);
 }
 
-.video-container h5 {
-    color: #149ddd;
-    margin-bottom: 15px;
+.project-modal .carousel-control-prev-icon,
+.project-modal .carousel-control-next-icon {
+    background-color: rgba(20, 157, 221, 0.85);
+    border-radius: 50%;
+    padding: 10px;
+}
+
+.project-modal .carousel-indicators [data-bs-target] {
+    border-radius: 4px;
+}
+
+/* Vídeo */
+.video-container {
+    padding: 20px;
+    border-radius: 14px;
+    background: rgba(255, 255, 255, 0.04);
+    border: 1px solid var(--glass-border);
 }
 
 .project-video {
-    border-radius: 8px;
+    border-radius: 10px;
     background: #000;
-}
-
-.detailed-description {
-    background: #f8f9fa;
-    padding: 15px;
-    border-radius: 8px;
-    border-left: 3px solid #149ddd;
+    display: block;
 }
 
 .project-links .btn {
-    border-radius: 25px;
-    padding: 10px 20px;
-    transition: all 0.3s ease;
+    border-radius: 30px;
+    padding: 11px 20px;
     font-weight: 600;
     text-decoration: none;
     display: flex;
     align-items: center;
     justify-content: center;
     gap: 8px;
+    transition: transform 0.3s ease, background 0.3s ease, box-shadow 0.3s ease;
 }
 
 .project-links .btn:hover {
     transform: translateY(-2px);
-    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
 }
 
 .project-links .btn-primary {
-    background: linear-gradient(135deg, #149ddd 0%, #1f5297 100%);
+    background: linear-gradient(135deg, var(--accent) 0%, var(--accent-deep) 100%);
     border: none;
+    color: #ffffff;
 }
 
 .project-links .btn-primary:hover {
-    background: linear-gradient(135deg, #1f5297 0%, #149ddd 100%);
+    background: linear-gradient(135deg, var(--accent-deep) 0%, var(--accent) 100%);
+    box-shadow: 0 8px 22px rgba(20, 157, 221, 0.35);
 }
 
-/* Responsividade */
 @media (max-width: 768px) {
     .project-modal .modal-dialog {
-        margin: 20px;
-    }
-
-    .tech-tags {
-        justify-content: center;
+        margin: 16px;
     }
 
     .project-info {
         margin-top: 20px;
     }
+}
 
+@media (prefers-reduced-motion: reduce) {
+    .tech-tag,
     .project-links .btn {
-        padding: 12px 20px;
-        font-size: 0.9rem;
+        transition: none;
     }
 }

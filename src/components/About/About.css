@@ -1,6 +1,6 @@
 .about {
-    padding: 80px 0;
-    background: linear-gradient(135deg, #212529 0%, #212529 100%);
+    /* Transparente: a camada de partículas fica visível por trás. */
+    background: transparent;
 }
 
 .about .section-title {
@@ -35,18 +35,47 @@
 
 /* Profile Card */
 .profile-card {
-    background: #2C3034;
+    position: relative;
+    overflow: hidden;
     padding: 30px;
-    border-radius: 15px;
-    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
-    border-left: 4px solid #149ddd
+    border-radius: var(--glass-radius);
+    border: 1px solid var(--glass-border);
+    border-left: 3px solid var(--accent);
+    background: var(--glass-bg);
+    backdrop-filter: var(--glass-blur);
+    box-shadow: var(--glass-shadow);
+    transition: transform 0.35s ease, border-color 0.35s ease, box-shadow 0.35s ease;
+}
+
+.profile-card::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 1px;
+    background: linear-gradient(
+        90deg,
+        transparent,
+        rgba(255, 255, 255, 0.35),
+        transparent
+    );
+}
+
+.profile-card:hover {
+    transform: translateY(-6px);
+    border-color: rgba(20, 157, 221, 0.45);
+    box-shadow: var(--glass-shadow-hover);
 }
 
 .profile-img {
     width: 200px;
     height: 200px;
-    border: 5px solid #149ddd;
+    border: 4px solid rgba(255, 255, 255, 0.1);
     padding: 3px;
+    box-shadow:
+        0 0 0 1px rgba(20, 157, 221, 0.25),
+        0 10px 30px rgba(0, 0, 0, 0.35);
 }
 
 .profile-info h4 {
@@ -66,24 +95,74 @@
 .info-item {
     display: flex;
     align-items: center;
-    margin-bottom: 12px;
-    padding: 8px 0;
+    gap: 10px;
+    margin-bottom: 8px;
+    padding: 9px 10px;
+    border-radius: 12px;
+    background: rgba(255, 255, 255, 0.04);
+    border: 1px solid rgba(255, 255, 255, 0.07);
+    transition: background 0.25s ease, border-color 0.25s ease;
+}
+
+.info-item:hover {
+    background: rgba(20, 157, 221, 0.1);
+    border-color: rgba(20, 157, 221, 0.3);
 }
 
 .info-item i {
-    color: #149ddd;
-    font-size: 18px;
-    margin-right: 15px;
-    width: 20px;
-    text-align: center;
+    display: grid;
+    place-items: center;
+    flex-shrink: 0;
+    width: 28px;
+    height: 28px;
+    border-radius: 9px;
+    font-size: 15px;
+    color: var(--accent-soft);
+    background: rgba(20, 157, 221, 0.14);
+    border: 1px solid rgba(20, 157, 221, 0.24);
 }
 
-.info-item span {
-    color: #ccc;
-    font-size: 14px;
+.info-item span,
+.info-item a {
+    color: #d7dde3;
+    font-size: 13px;
+    text-decoration: none;
+    /* Só o <wbr> do e-mail cria quebra; nada parte no meio da palavra. */
+    overflow-wrap: normal;
+    word-break: normal;
+}
+
+.info-item a:hover {
+    color: var(--accent-soft);
 }
 
 /* About Content */
+.about-content {
+    position: relative;
+    overflow: hidden;
+    padding: 30px;
+    border-radius: var(--glass-radius);
+    border: 1px solid var(--glass-border);
+    background: var(--glass-bg);
+    backdrop-filter: var(--glass-blur);
+    box-shadow: var(--glass-shadow);
+}
+
+.about-content::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 1px;
+    background: linear-gradient(
+        90deg,
+        transparent,
+        rgba(255, 255, 255, 0.35),
+        transparent
+    );
+}
+
 .about-content h3 {
     font-weight: 700;
     font-size: 26px;
@@ -93,20 +172,22 @@
 .bio-text p {
     margin-bottom: 20px;
     line-height: 1.8;
-    color: #ccc;
+    color: #d7dde3;
+    font-size: 14.5px;
     text-align: justify;
 }
 
 .bio-text strong {
-    color: #149ddd;
+    color: var(--accent-soft);
 }
 
 /* Skills Highlight */
 .skills-highlight {
-    background: #2C3034;
-    padding: 25px;
-    border-radius: 10px;
-    border-left: 4px solid #149ddd;
+    padding: 24px;
+    border-radius: 14px;
+    border: 1px solid var(--glass-border);
+    border-left: 3px solid var(--accent);
+    background: rgba(255, 255, 255, 0.04);
 }
 
 .skills-highlight h5 {
@@ -121,26 +202,25 @@
 }
 
 .skill-tag {
-    background: linear-gradient(135deg, #149ddd 0%, #1f5297 100%);
-    color: white;
-    padding: 6px 15px;
-    border-radius: 20px;
-    font-size: 0.85rem;
-    font-weight: 500;
-    transition: all 0.3s ease;
+    display: inline-flex;
+    align-items: center;
+    padding: 7px 14px;
+    border-radius: 30px;
+    font-size: 12.5px;
+    font-weight: 600;
+    color: #e8edf2;
+    background: rgba(20, 157, 221, 0.2);
+    border: 1px solid rgba(20, 157, 221, 0.5);
+    transition: transform 0.25s ease, background 0.25s ease;
 }
 
 .skill-tag:hover {
     transform: translateY(-2px);
-    box-shadow: 0 5px 15px rgba(20, 157, 221, 0.3);
+    background: rgba(20, 157, 221, 0.34);
 }
 
 /* Responsive */
 @media (max-width: 768px) {
-    .about {
-        padding: 60px 0;
-    }
-
     .profile-card {
         margin-bottom: 30px;
         padding: 20px;
@@ -163,5 +243,19 @@
 
     .bio-text p {
         font-size: 14px;
+    }
+}
+@media (prefers-reduced-motion: reduce) {
+    .profile-card,
+    .info-item,
+    .skill-tag {
+        transition: none;
+    }
+}
+
+@supports not (backdrop-filter: blur(1px)) {
+    .profile-card,
+    .about-content {
+        background: rgba(33, 37, 41, 0.92);
     }
 }

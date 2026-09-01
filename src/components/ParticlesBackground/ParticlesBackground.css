@@ -1,0 +1,86 @@
+/*--------------------------------------------------------------
+# Camada de partículas (fundo global)
+--------------------------------------------------------------*/
+
+.particles-layer {
+    position: fixed;
+    inset: 0;
+    z-index: 0;
+    overflow: hidden;
+    pointer-events: none;
+
+    /*
+     * Base escura da página inteira: as seções acima ficam transparentes.
+     *
+     * Esta camada é position:fixed, então o fundo é o mesmo em toda tela. Um
+     * linear-gradient vertical aqui viraria uma faixa clara/escura repetida a
+     * cada rolagem, e era o que fazia o topo e o rodapé parecerem de páginas
+     * diferentes. Base chapada + dois brilhos radiais ancorados fora da tela
+     * dão profundidade sem criar eixo vertical perceptível.
+     */
+    background:
+        radial-gradient(
+            1200px 820px at 78% -12%,
+            rgba(20, 157, 221, 0.1) 0%,
+            transparent 62%
+        ),
+        radial-gradient(
+            1000px 720px at -12% 110%,
+            rgba(31, 82, 151, 0.1) 0%,
+            transparent 60%
+        ),
+        var(--page-base);
+}
+
+.particle-dot {
+    position: absolute;
+    bottom: -10vh;
+    left: var(--left);
+    width: var(--size);
+    height: var(--size);
+    border-radius: 50%;
+    background: rgba(255, 255, 255, 0.75);
+    opacity: 0;
+    will-change: transform, opacity;
+    animation: particle-rise var(--duration) linear var(--delay) infinite;
+}
+
+.particle-accent {
+    background: rgba(20, 157, 221, 0.9);
+}
+
+/* As da frente ganham brilho; as do fundo ficam apagadas de propósito. */
+.particle-near {
+    box-shadow: 0 0 8px 1px rgba(20, 157, 221, 0.35);
+}
+
+.particle-far {
+    filter: blur(0.6px);
+}
+
+@keyframes particle-rise {
+    0% {
+        transform: translate3d(0, 0, 0) scale(0.7);
+        opacity: 0;
+    }
+    12% {
+        opacity: var(--opacity);
+    }
+    88% {
+        opacity: var(--opacity);
+    }
+    100% {
+        transform: translate3d(var(--drift), -120vh, 0) scale(1);
+        opacity: 0;
+    }
+}
+
+/*
+ * Quem pediu menos animação no sistema recebe o fundo estático — o gradiente
+ * permanece, só o movimento sai.
+ */
+@media (prefers-reduced-motion: reduce) {
+    .particle-dot {
+        display: none;
+    }
+}

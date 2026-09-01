@@ -2,9 +2,8 @@ import React from 'react';
 import './About.css';
 
 const About = () => {
-    
     return (
-        <section id="about" className="about bg-dark text-white">
+        <section id="about" className="about text-white">
             <div className="container">
                 <div className="section-title">
                     <h2 className="text-white">Sobre</h2>
@@ -15,9 +14,13 @@ const About = () => {
                     <div className="col-lg-4" data-aos="fade-right">
                         <div className="profile-card text-center">
                             <img
-                                src={`${process.env.PUBLIC_URL}/assets/img/thotos/photo-rounded-circle.png`}
+                                src="/assets/img/thotos/photo-rounded-circle.webp"
                                 alt="André Nagybhe"
                                 className="img-fluid rounded-circle profile-img"
+                                width="200"
+                                height="200"
+                                loading="lazy"
+                                decoding="async"
                             />
                             <div className="profile-info mt-4">
                                 <h4 className="text-white">André Nagybhe</h4>
@@ -25,15 +28,20 @@ const About = () => {
 
                                 <div className="personal-info">
                                     <div className="info-item">
-                                        <i className="bx bx-map"></i>
+                                        <i className="bx bx-map" aria-hidden="true"></i>
                                         <span>Amapá, Macapá, AP</span>
                                     </div>
                                     <div className="info-item">
-                                        <i className="bx bx-envelope"></i>
-                                        <span>andre.nagybhe.ramos@gmail.com</span>
+                                        <i className="bx bx-envelope" aria-hidden="true"></i>
+                                        <a href="mailto:andre.nagybhe.ramos@gmail.com">
+                                            {/* <wbr> dá o único ponto de quebra: se não
+                                                couber, quebra depois do @ em vez de no
+                                                meio da palavra. */}
+                                            andre.nagybhe.ramos@<wbr />gmail.com
+                                        </a>
                                     </div>
                                     <div className="info-item">
-                                        <i className="bx bx-cake"></i>
+                                        <i className="bx bx-cake" aria-hidden="true"></i>
                                         <span>28 Anos</span>
                                     </div>
                                 </div>

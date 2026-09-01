@@ -1,75 +1,65 @@
-.contact-modal .modal-content {
-    border-radius: 15px;
-    border: none;
-    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
-}
-
-.contact-modal .modal-header-custom {
-    background: linear-gradient(135deg, #149ddd 0%, #1f5297 100%);
-    color: white;
-    border-bottom: none;
-    border-radius: 15px 15px 0 0;
-    padding: 20px;
-}
+/*--------------------------------------------------------------
+# ContactModal — a base de vidro vem de .glass-modal (App.css)
+--------------------------------------------------------------*/
 
 .contact-modal .modal-header-custom .modal-title {
-    font-weight: 700;
-    font-size: 24px;
-}
-
-.contact-modal .modal-header-custom .btn-close {
-    filter: invert(1);
-    opacity: 0.8;
-    font-size: 16px;
-}
-
-.contact-modal .modal-header-custom .btn-close:hover {
-    opacity: 1;
-}
-
-.contact-modal .modal-body {
-    padding: 30px;
+    font-size: 22px;
+    letter-spacing: 1px;
 }
 
 .contact-modal .text-center p {
-    color: #6c757d;
+    color: #9aa4ae;
     margin-bottom: 0;
-    font-size: 16px;
+    font-size: 15px;
 }
 
 .contact-modal .form-group {
-    margin-bottom: 20px;
+    margin-bottom: 18px;
 }
 
 .contact-modal label {
+    display: block;
     font-weight: 600;
-    color: #173b6c;
+    color: #cfd6dd;
     margin-bottom: 8px;
-    font-size: 14px;
+    font-size: 12px;
     text-transform: uppercase;
-    letter-spacing: 0.5px;
+    letter-spacing: 0.9px;
 }
 
+/* Campos em vidro, no lugar dos inputs brancos. */
 .contact-modal .form-control {
-    height: 50px;
-    border: 2px solid #e9ecef;
-    border-radius: 8px;
+    height: 48px;
     padding: 12px 15px;
     font-size: 14px;
-    transition: all 0.3s ease;
-    background: #fff;
-    color: #272829;
+    border-radius: 12px;
+    color: #eef2f6;
+    background: rgba(255, 255, 255, 0.05);
+    border: 1px solid var(--glass-border);
+    transition: border-color 0.25s ease, box-shadow 0.25s ease, background 0.25s ease;
 }
 
 .contact-modal .form-control::placeholder {
-    color: #6c757d;
+    color: #79828b;
+}
+
+.contact-modal .form-control:hover {
+    background: rgba(255, 255, 255, 0.07);
 }
 
 .contact-modal .form-control:focus {
-    border-color: #149ddd;
-    box-shadow: 0 0 0 0.2rem rgba(20, 157, 221, 0.25);
-    background: #fff;
-    color: #272829;
+    color: #eef2f6;
+    background: rgba(255, 255, 255, 0.08);
+    border-color: rgba(20, 157, 221, 0.65);
+    box-shadow: 0 0 0 3px rgba(20, 157, 221, 0.2);
+}
+
+/* O autofill do Chrome pinta o campo de branco por padrão. */
+.contact-modal .form-control:-webkit-autofill,
+.contact-modal .form-control:-webkit-autofill:focus {
+    -webkit-text-fill-color: #eef2f6;
+    box-shadow: 0 0 0 1000px rgba(30, 36, 43, 0.98) inset;
+    caret-color: #eef2f6;
 }
 
 .contact-modal textarea.form-control {
@@ -79,73 +69,81 @@
 }
 
 .contact-modal .contact-btn {
-    background: linear-gradient(135deg, #149ddd 0%, #1f5297 100%);
-    border: none;
     padding: 12px 40px;
-    border-radius: 25px;
+    border-radius: 30px;
     font-weight: 600;
-    font-size: 16px;
-    transition: all 0.3s ease;
+    font-size: 15px;
     color: #fff;
     text-transform: uppercase;
     letter-spacing: 1px;
+    border: none;
+    background: linear-gradient(135deg, var(--accent) 0%, var(--accent-deep) 100%);
+    transition: transform 0.3s ease, box-shadow 0.3s ease, background 0.3s ease;
 }
 
-.contact-modal .contact-btn:hover {
+.contact-modal .contact-btn:hover:not(:disabled),
+.contact-modal .contact-btn:focus-visible:not(:disabled) {
     transform: translateY(-2px);
-    box-shadow: 0 8px 25px rgba(20, 157, 221, 0.4);
-    background: linear-gradient(135deg, #1f5297 0%, #149ddd 100%);
+    box-shadow: 0 10px 26px rgba(20, 157, 221, 0.4);
+    background: linear-gradient(135deg, var(--accent-deep) 0%, var(--accent) 100%);
     color: #fff;
 }
 
 .contact-modal .contact-btn:disabled {
-    opacity: 0.7;
+    opacity: 0.6;
     transform: none;
     box-shadow: none;
 }
 
-.contact-modal .alert-success {
-    background: rgba(21, 87, 36, 0.9);
-    border-color: #155724;
-    color: #ffffff;
-    border-radius: 8px;
-    padding: 15px;
+/* Avisos translúcidos, no mesmo tom dos status de Qualificações. */
+.contact-modal .alert-message {
     display: flex;
     align-items: center;
     gap: 10px;
-    border: none;
+    padding: 14px 16px;
     margin-bottom: 20px;
+    border-radius: 12px;
+    font-size: 14px;
 }
 
-.contact-modal .alert-success i {
+.contact-modal .alert-message i {
     font-size: 20px;
+    flex-shrink: 0;
+}
+
+.contact-modal .alert-success {
+    color: #9be2b4;
+    background: rgba(21, 87, 36, 0.35);
+    border: 1px solid rgba(60, 160, 95, 0.5);
+}
+
+.contact-modal .alert-danger {
+    color: #f5a3ac;
+    background: rgba(132, 32, 41, 0.35);
+    border: 1px solid rgba(180, 60, 72, 0.5);
+}
+
+.contact-modal .alert-warning {
+    color: #ffd970;
+    background: rgba(133, 100, 4, 0.35);
+    border: 1px solid rgba(190, 150, 30, 0.5);
 }
 
 @media (max-width: 768px) {
     .contact-modal .modal-dialog {
-        margin: 20px;
-    }
-
-    .contact-modal .modal-body {
-        padding: 20px;
-    }
-
-    .contact-modal .contact-btn {
-        padding: 10px 30px;
-        font-size: 14px;
+        margin: 16px;
     }
 }
 
 @media (max-width: 576px) {
-    .contact-modal .modal-body {
-        padding: 15px;
-    }
-
-    .contact-modal .modal-header-custom {
-        padding: 15px;
-    }
-
     .contact-modal .modal-header-custom .modal-title {
-        font-size: 20px;
+        font-size: 19px;
+    }
+}
+
+@media (prefers-reduced-motion: reduce) {
+    .contact-modal .form-control,
+    .contact-modal .contact-btn {
+        transition: none;
     }
 }

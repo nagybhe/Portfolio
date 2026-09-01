@@ -1,18 +1,29 @@
 import React, { useState } from 'react';
 import { Modal, Button, Form, Alert, Row, Col } from 'react-bootstrap';
-import emailjs from 'emailjs-com'; // ← ADICIONE ESTA LINHA
+import emailjs from '@emailjs/browser';
 import './ContactModal.css';
 
+/*
+ * Credenciais vêm exclusivamente do ambiente (.env.local em dev, variáveis do
+ * projeto na Vercel em produção). Sem fallback embutido: qualquer valor no
+ * bundle é público, e um fallback no código anula o .gitignore do .env.
+ */
+const EMAILJS_SERVICE_ID = import.meta.env.VITE_EMAILJS_SERVICE_ID;
+const EMAILJS_TEMPLATE_ID = import.meta.env.VITE_EMAILJS_TEMPLATE_ID;
+const EMAILJS_PUBLIC_KEY = import.meta.env.VITE_EMAILJS_PUBLIC_KEY;
+
+export const CONTACT_EMAIL = 'andre.nagybhe.ramos@gmail.com';
+
+const isConfigured = Boolean(
+    EMAILJS_SERVICE_ID && EMAILJS_TEMPLATE_ID && EMAILJS_PUBLIC_KEY
+);
+
+const EMPTY_FORM = { name: '', email: '', subject: '', message: '' };
+
 const ContactModal = ({ show, handleClose }) => {
-    const [formData, setFormData] = useState({
-        name: '',
-        email: '',
-        subject: '',
-        message: ''
-    });
-    const [showAlert, setShowAlert] = useState(false);
+    const [formData, setFormData] = useState(EMPTY_FORM);
     const [isSubmitting, setIsSubmitting] = useState(false);
-    const [alertType, setAlertType] = useState('success'); // 'success' ou 'error'
+    const [status, setStatus] = useState(null); // 'success' | 'error' | 'unconfigured'
 
     const handleChange = (e) => {
         setFormData({
@@ -23,59 +34,70 @@ const ContactModal = ({ show, handleClose }) => {
 
     const handleSubmit = async (e) => {
         e.preventDefault();
+
+        if (!isConfigured) {
+            setStatus('unconfigured');
+            return;
+        }
+
         setIsSubmitting(true);
-        // DEFINA templateParams AQUI - ANTES de usar
-        const templateParams = {
-            from_name: formData.name,
-            from_email: formData.email,
-            subject: formData.subject,
-            message: formData.message,
-            to_email: 'ins4nityhz@gmail.com' // SEU EMAIL REAL AQUI
-        };
+        setStatus(null);
 
         try {
             await emailjs.send(
-                process.env.REACT_APP_EMAILJS_SERVICE_ID || 'service_rw65j59',
-                process.env.REACT_APP_EMAILJS_TEMPLATE_ID || 'template_5a3bqu2',
-                templateParams,
-                process.env.REACT_APP_EMAILJS_PUBLIC_KEY || 'afhxTW6cc58fNJRwz'
+                EMAILJS_SERVICE_ID,
+                EMAILJS_TEMPLATE_ID,
+                {
+                    from_name: formData.name,
+                    from_email: formData.email,
+                    subject: formData.subject,
+                    message: formData.message,
+                    to_email: CONTACT_EMAIL
+                },
+                { publicKey: EMAILJS_PUBLIC_KEY }
             );
 
-            // Sucesso
-            console.log('✅ Email enviado com sucesso!');
-            setAlertType('success');
-            setShowAlert(true);
-            setFormData({ name: '', email: '', subject: '', message: '' });
+            setStatus('success');
+            setFormData(EMPTY_FORM);
 
             setTimeout(() => {
-                setShowAlert(false);
+                setStatus(null);
                 handleClose();
             }, 3000);
-
         } catch (error) {
-            // Erro DETALHADO
-            console.error('❌ Erro AO ENVIAR EMAIL:', error);
-            console.log('🔍 Detalhes do erro:', {
-                code: error.code,
-                message: error.text,
-                status: error.status
-            });
-
-            setAlertType('error');
-            setShowAlert(true);
+            console.error('Falha ao enviar o formulário de contato:', error);
+            setStatus('error');
         } finally {
             setIsSubmitting(false);
         }
     };
 
     const handleModalClose = () => {
-        setFormData({ name: '', email: '', subject: '', message: '' });
-        setShowAlert(false);
+        setFormData(EMPTY_FORM);
+        setStatus(null);
         handleClose();
     };
 
+    const alert = {
+        success: {
+            variant: 'success',
+            icon: 'bx-check-circle',
+            text: 'Sua mensagem foi enviada com sucesso! Obrigado.'
+        },
+        error: {
+            variant: 'danger',
+            icon: 'bx-error',
+            text: 'Erro ao enviar a mensagem. Tente novamente em instantes.'
+        },
+        unconfigured: {
+            variant: 'warning',
+            icon: 'bx-error',
+            text: `Envio indisponível no momento. Fale comigo direto em ${CONTACT_EMAIL}.`
+        }
+    }[status];
+
     return (
-        <Modal show={show} onHide={handleModalClose} size="lg" centered className="contact-modal">
+        <Modal show={show} onHide={handleModalClose} size="lg" centered className="contact-modal glass-modal">
             <Modal.Header closeButton className="modal-header-custom">
                 <Modal.Title>CONTATO</Modal.Title>
             </Modal.Header>
@@ -86,17 +108,15 @@ const ContactModal = ({ show, handleClose }) => {
                 </div>
 
                 <Form onSubmit={handleSubmit}>
-                    {showAlert && (
-                        <Alert variant={alertType === 'success' ? 'success' : 'danger'} className="alert-message">
-                            <i className={`bx ${alertType === 'success' ? 'bx-check-circle' : 'bx-error'}`}></i>
-                            {alertType === 'success'
-                                ? 'Sua mensagem foi enviada com sucesso! Obrigado.'
-                                : 'Erro ao enviar mensagem. Tente novamente.'
-                            }
-                        </Alert>
-                    )}
+                    <div aria-live="polite" aria-atomic="true">
+                        {alert && (
+                            <Alert variant={alert.variant} className="alert-message">
+                                <i className={`bx ${alert.icon}`} aria-hidden="true"></i>
+                                {alert.text}
+                            </Alert>
+                        )}
+                    </div>
 
-                    {/* Resto do formulário permanece igual */}
                     <Row>
                         <Col md={6} className="form-group">
                             <Form.Label htmlFor="name">Seu Nome</Form.Label>
@@ -104,6 +124,7 @@ const ContactModal = ({ show, handleClose }) => {
                                 type="text"
                                 name="name"
                                 id="name"
+                                autoComplete="name"
                                 value={formData.name}
                                 onChange={handleChange}
                                 required
@@ -116,6 +137,7 @@ const ContactModal = ({ show, handleClose }) => {
                                 type="email"
                                 name="email"
                                 id="email"
+                                autoComplete="email"
                                 value={formData.email}
                                 onChange={handleChange}
                                 required
@@ -164,7 +186,7 @@ const ContactModal = ({ show, handleClose }) => {
                                 </>
                             ) : (
                                 <>
-                                    <i className="bx bx-send me-2"></i>
+                                    <i className="bx bx-send me-2" aria-hidden="true"></i>
                                     Enviar Mensagem
                                 </>
                             )}

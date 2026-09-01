@@ -6,6 +6,7 @@ import './App.css';
 import { Analytics } from "@vercel/analytics/react";
 
 // Import dos componentes
+import ParticlesBackground from './components/ParticlesBackground/ParticlesBackground';
 import Header from './components/Header/Header';
 import Hero from './components/Hero/Hero';
 import About from './components/About/About';
@@ -18,17 +19,24 @@ function App() {
     const [showContactModal, setShowContactModal] = useState(false);
 
     useEffect(() => {
+        // Respeita quem pediu menos animação no sistema operacional.
+        const prefersReducedMotion = window.matchMedia(
+            '(prefers-reduced-motion: reduce)'
+        ).matches;
+
         AOS.init({
-            duration: 1000,
+            duration: prefersReducedMotion ? 0 : 1000,
             easing: 'ease-in-out',
             once: true,
-            mirror: false
+            mirror: false,
+            disable: prefersReducedMotion
         });
     }, []);
 
     return (
         <div className="App">
             <Analytics />
+            <ParticlesBackground />
             <Header onContactClick={() => setShowContactModal(true)} />
             <main id="main">
                 <Hero />

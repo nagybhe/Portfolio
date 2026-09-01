@@ -1,9 +1,105 @@
 /*--------------------------------------------------------------
+# Tokens da identidade visual
+--------------------------------------------------------------*/
+:root {
+    /* Base da página. O body usa a mesma cor para que qualquer área não coberta
+       pela camada de partículas seja indistinguível dela. */
+    --page-base: #1e2227;
+
+    --accent: #149ddd;
+    --accent-soft: #46c9f5;
+    --accent-deep: #1f5297;
+
+    /* Vidro: uma definição só, usada por todas as seções. */
+    --glass-bg: rgba(255, 255, 255, 0.045);
+    --glass-bg-strong: rgba(255, 255, 255, 0.07);
+    --glass-border: rgba(255, 255, 255, 0.1);
+    --glass-blur: blur(18px) saturate(150%);
+    --glass-shadow: 0 18px 40px rgba(0, 0, 0, 0.28);
+    --glass-shadow-hover: 0 24px 55px rgba(0, 0, 0, 0.38);
+    --glass-radius: 18px;
+
+    /*
+     * Ritmo vertical da página. Cada seção usa o mesmo valor em cima e embaixo,
+     * então o respiro entre duas seções é sempre 2x este número. Antes cada
+     * arquivo declarava o seu (80px aqui, 60px ali) e o hero somava 200px de
+     * vazio por ser 100vh com conteúdo centralizado.
+     */
+    --section-space: 64px;
+}
+
+@media (max-width: 992px) {
+    :root {
+        --section-space: 48px;
+    }
+}
+
+@media (max-width: 576px) {
+    :root {
+        --section-space: 36px;
+    }
+}
+
+/*
+ * Painel de vidro. Só funciona porque as seções são transparentes e deixam a
+ * camada de partículas passar por baixo — é ela que o blur captura.
+ */
+.glass-panel {
+    background: var(--glass-bg);
+    border: 1px solid var(--glass-border);
+    backdrop-filter: var(--glass-blur);
+    box-shadow: var(--glass-shadow);
+}
+
+/* Filete de luz no topo, que dá a leitura de vidro. */
+.glass-sheen {
+    position: relative;
+    overflow: hidden;
+}
+
+.glass-sheen::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 1px;
+    background: linear-gradient(
+        90deg,
+        transparent,
+        rgba(255, 255, 255, 0.35),
+        transparent
+    );
+}
+
+/* Sem backdrop-filter o vidro ficaria ilegível sobre as partículas. */
+@supports not (backdrop-filter: blur(1px)) {
+    .glass-panel {
+        background: rgba(33, 37, 41, 0.92);
+    }
+}
+
+/*--------------------------------------------------------------
 # General
 --------------------------------------------------------------*/
 body {
     font-family: "Open Sans", sans-serif;
     color: #272829;
+    background: var(--page-base);
+}
+
+/*
+ * Só o #main precisa ser empilhado acima da camada de partículas: conteúdo de
+ * bloco pinta abaixo de elementos posicionados, então sem isso as seções
+ * ficariam atrás do fundo.
+ *
+ * NÃO generalizar para `.App > *`: .header e .mobile-nav-toggle são
+ * position:fixed, e um `position: relative` genérico os desprega da viewport
+ * (a sidebar perde o bottom:0, encolhe e passa a rolar com a página).
+ */
+#main {
+    position: relative;
+    z-index: 1;
 }
 
 a {
@@ -18,39 +114,6 @@ a:hover {
 
 h1, h2, h3, h4, h5, h6 {
     font-family: "Raleway", sans-serif;
-}
-
-/*--------------------------------------------------------------
-# Back to top button
---------------------------------------------------------------*/
-.back-to-top {
-    position: fixed;
-    visibility: hidden;
-    opacity: 0;
-    right: 15px;
-    bottom: 15px;
-    z-index: 996;
-    background: #149ddd;
-    width: 40px;
-    height: 40px;
-    border-radius: 50px;
-    transition: all 0.4s;
-}
-
-.back-to-top i {
-    font-size: 28px;
-    color: #fff;
-    line-height: 0;
-}
-
-.back-to-top:hover {
-    background: #2eafec;
-    color: #fff;
-}
-
-.back-to-top.active {
-    visibility: visible;
-    opacity: 1;
 }
 
 /*--------------------------------------------------------------
@@ -69,13 +132,10 @@ h1, h2, h3, h4, h5, h6 {
 /*--------------------------------------------------------------
 # Sections General
 --------------------------------------------------------------*/
+/* Fonte única do espaçamento entre seções. */
 section {
-    padding: 60px 0;
+    padding: var(--section-space) 0;
     overflow: hidden;
-}
-
-.section-bg {
-    background: #f5f8fd;
 }
 
 .section-title {
@@ -104,4 +164,145 @@ section {
 
 .section-title p {
     margin-bottom: 0;
+}
+/*--------------------------------------------------------------
+# Modais em vidro
+--------------------------------------------------------------*/
+
+/* O fundo atrás do modal também desfoca, e não só escurece. */
+.modal-backdrop {
+    backdrop-filter: blur(6px);
+}
+
+.modal-backdrop.show {
+    opacity: 0.7;
+}
+
+.glass-modal .modal-content {
+    position: relative;
+    overflow: hidden;
+    border-radius: var(--glass-radius);
+    border: 1px solid var(--glass-border);
+    background: rgba(22, 26, 31, 0.88);
+    backdrop-filter: blur(24px) saturate(160%);
+    box-shadow: 0 30px 70px rgba(0, 0, 0, 0.55);
+    color: #d7dde3;
+}
+
+/* Mesmo filete de luz dos cards das seções. */
+.glass-modal .modal-content::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 1px;
+    background: linear-gradient(
+        90deg,
+        transparent,
+        rgba(255, 255, 255, 0.35),
+        transparent
+    );
+    z-index: 2;
+}
+
+/*
+ * O cabeçalho era uma barra azul cheia. Vira um tom translúcido com divisor,
+ * que é como os cards de Hard Skills separam cabeçalho de conteúdo.
+ */
+.glass-modal .modal-header-custom {
+    background: linear-gradient(
+        135deg,
+        rgba(20, 157, 221, 0.18) 0%,
+        rgba(31, 82, 151, 0.1) 100%
+    );
+    border-bottom: 1px solid var(--glass-border);
+    border-radius: 0;
+    padding: 20px 24px;
+    color: #ffffff;
+}
+
+.glass-modal .modal-header-custom .modal-title {
+    font-weight: 700;
+    letter-spacing: 0.2px;
+    color: #ffffff;
+}
+
+.glass-modal .modal-header-custom .btn-close {
+    filter: invert(1);
+    opacity: 0.7;
+    transition: opacity 0.25s ease;
+}
+
+.glass-modal .modal-header-custom .btn-close:hover,
+.glass-modal .modal-header-custom .btn-close:focus-visible {
+    opacity: 1;
+}
+
+.glass-modal .modal-body {
+    padding: 26px 24px;
+    color: #d7dde3;
+}
+
+.glass-modal .modal-footer {
+    border-top: 1px solid var(--glass-border);
+    padding: 16px 24px;
+}
+
+/* Títulos internos: barra curta de acento, como as section-title. */
+.glass-modal h5 {
+    position: relative;
+    font-size: 15px;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.9px;
+    color: var(--accent-soft);
+    padding-bottom: 12px;
+    margin-bottom: 16px;
+}
+
+.glass-modal h5::after {
+    content: "";
+    position: absolute;
+    left: 0;
+    bottom: 0;
+    width: 38px;
+    height: 2px;
+    border-radius: 2px;
+    background: var(--accent);
+}
+
+/* Botões do modal no mesmo desenho dos chips/CTAs da página. */
+.glass-modal .btn-outline-light {
+    border-color: var(--glass-border);
+    background: rgba(255, 255, 255, 0.05);
+    color: #e8edf2;
+    font-weight: 600;
+}
+
+.glass-modal .btn-outline-light:hover,
+.glass-modal .btn-outline-light:focus-visible {
+    background: rgba(20, 157, 221, 0.22);
+    border-color: rgba(20, 157, 221, 0.5);
+    color: #ffffff;
+}
+
+.glass-modal .btn-outline-secondary.disabled,
+.glass-modal .btn-outline-secondary:disabled {
+    background: rgba(255, 255, 255, 0.03);
+    border-color: rgba(255, 255, 255, 0.12);
+    color: #8b939c;
+}
+
+@supports not (backdrop-filter: blur(1px)) {
+    .glass-modal .modal-content {
+        background: rgba(22, 26, 31, 0.98);
+    }
+}
+
+@media (prefers-reduced-motion: reduce) {
+    .glass-modal .modal-content,
+    .glass-modal .btn {
+        transition: none;
+    }
 }

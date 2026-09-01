@@ -3,82 +3,24 @@
 --------------------------------------------------------------*/
 .hero-section {
     width: 100%;
-    min-height: 100vh;
+    /*
+     * 100vh deixava ~200px de vazio acima e abaixo do conteúdo (que tem ~570px),
+     * empurrando a seção Sobre para longe. O teto em px impede que o vazio volte
+     * a crescer em telas altas, mantendo o respiro do hero próximo do respiro
+     * entre as demais seções.
+     */
+    min-height: min(75vh, 750px);
     position: relative;
     display: flex;
     align-items: center;
     justify-content: center;
     overflow: hidden;
-    background: linear-gradient(135deg, #0c0c0c 0%, #1a1a1a 50%, #2d2d2d 100%);
-}
-
-/* Background Gradient */
-.hero-background {
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    z-index: 1;
-}
-
-.hero-gradient {
-    width: 100%;
-    height: 100%;
-    background:
-            radial-gradient(circle at 20% 80%, rgba(20, 157, 221, 0.15) 0%, transparent 50%),
-            radial-gradient(circle at 80% 20%, rgba(31, 82, 151, 0.1) 0%, transparent 50%),
-            radial-gradient(circle at 40% 40%, rgba(5, 13, 24, 0.2) 0%, transparent 50%);
-    animation: gradientShift 10s ease-in-out infinite;
-}
-
-@keyframes gradientShift {
-    0%, 100% {
-        transform: scale(1);
-    }
-    50% {
-        transform: scale(1.1);
-    }
-}
-
-/* Animated Particles */
-.hero-particles {
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    z-index: 2;
-}
-
-.particle {
-    position: absolute;
-    width: 4px;
-    height: 4px;
-    background: rgba(20, 157, 221, 0.6);
-    border-radius: 50%;
-    animation: float 20s linear infinite;
-}
-
-.particle:nth-child(odd) {
-    background: rgba(255, 255, 255, 0.4);
-}
-
-@keyframes float {
-    0% {
-        transform: translateY(100vh) rotate(0deg);
-        opacity: 0;
-    }
-    10% {
-        opacity: 1;
-    }
-    90% {
-        opacity: 1;
-    }
-    100% {
-        transform: translateY(-100px) rotate(360deg);
-        opacity: 0;
-    }
+    /*
+     * Sem fundo próprio: a ambiência da página inteira vem da camada de
+     * partículas. Um gradiente aqui tingia só a primeira tela e criava a
+     * emenda visível na altura em que o hero termina.
+     */
+    background: transparent;
 }
 
 /* Hero Content */
@@ -86,14 +28,18 @@
     position: relative;
     z-index: 3;
     text-align: center;
-    opacity: 0;
-    transform: translateY(30px);
-    transition: all 1s ease;
+    animation: hero-enter 1s ease forwards;
 }
 
-.hero-content.visible {
-    opacity: 1;
-    transform: translateY(0);
+@keyframes hero-enter {
+    from {
+        opacity: 0;
+        transform: translateY(30px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
 }
 
 /* Profile Image */
@@ -366,5 +312,14 @@
     .hero-stats {
         flex-direction: column;
         gap: 15px;
+    }
+}
+@media (prefers-reduced-motion: reduce) {
+    .hero-content {
+        animation: none;
+    }
+
+    .profile-glow {
+        animation: none;
     }
 }

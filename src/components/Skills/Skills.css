@@ -2,8 +2,8 @@
 # Skills
 --------------------------------------------------------------*/
 .skills {
-    padding: 80px 0;
-    background: #212529;
+    /* Transparente: a camada de partículas fica visível por trás. */
+    background: transparent;
 }
 
 .skills .section-title {
@@ -37,212 +37,320 @@
     color: #cccccc;
 }
 
-/* Skills Container */
-.skills-container {
-    margin-top: 30px;
+/*--------------------------------------------------------------
+# Legenda de níveis
+--------------------------------------------------------------*/
+.skill-legend {
+    list-style: none;
+    margin: 0 auto 40px;
+    padding: 0;
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+    gap: 14px;
 }
 
-/* Skill Category */
-.skill-category {
-    background: #2c3034;
-    padding: 30px;
-    border-radius: 15px;
-    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
-    margin-bottom: 30px;
-    border: 1px solid #343a40;
-    transition: all 0.3s ease;
-    height: 100%;
-}
-
-/* ESPAÇAMENTO ENTRE OS CARDS */
-.skills-container .row > .col-lg-6 {
-    padding: 15px;
-}
-
-.skill-category:hover {
-    transform: translateY(-5px);
-    box-shadow: 0 15px 40px rgba(0, 0, 0, 0.4);
-    border-color: #149ddd;
-}
-
-.skill-category-title {
-    font-size: 20px;
-    font-weight: 700;
-    color: #149ddd;
-    margin-bottom: 25px;
-    padding-bottom: 15px;
-    border-bottom: 2px solid #343a40;
-    text-align: center;
-}
-
-/* Skills List */
-.skills-list {
+.skill-legend-item {
     display: flex;
     flex-direction: column;
-    gap: 20px;
+    gap: 4px;
+    padding: 16px 18px;
+    border-radius: 14px;
+    border: 1px solid rgba(255, 255, 255, 0.09);
+    border-left: 3px solid var(--level-color);
+
+    /* O blur do fundo: o vidro pega a camada de partículas por trás. */
+    background: var(--glass-bg);
+    backdrop-filter: blur(14px) saturate(140%);
 }
 
-/* Skill Item */
-.skill-item {
-    background: #343a40;
-    padding: 20px;
-    border-radius: 10px;
-    border-left: 4px solid #149ddd;
-    transition: all 0.3s ease;
+.skill-legend-item > i {
+    color: var(--level-color);
+    font-size: 20px;
 }
 
-.skill-item:hover {
-    background: #3d4449;
-    transform: translateX(5px);
-}
-
-.skill-header {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    margin-bottom: 12px;
-}
-
-.skill-name {
-    font-size: 14px;
-    font-weight: 600;
-    color: #ffffff;
-    text-transform: uppercase;
-    letter-spacing: 0.5px;
-}
-
-.skill-percentage {
-    font-size: 14px;
+.skill-legend-label {
+    font-family: "Raleway", sans-serif;
     font-weight: 700;
-    color: #149ddd;
-    background: rgba(20, 157, 221, 0.1);
-    padding: 4px 10px;
-    border-radius: 12px;
-    min-width: 50px;
-    text-align: center;
+    font-size: 14px;
+    text-transform: uppercase;
+    letter-spacing: 0.6px;
+    color: #fff;
 }
 
-/* Skill Bar */
-.skill-bar-container {
-    background: #495057;
-    height: 8px;
-    border-radius: 4px;
+.skill-legend-description {
+    font-size: 12.5px;
+    line-height: 1.5;
+    color: #9aa4ae;
+}
+
+/*--------------------------------------------------------------
+# Grade de categorias
+--------------------------------------------------------------*/
+.skills-grid {
+    display: grid;
+    /* 2x2 no desktop: com 4 categorias, 3 colunas deixariam a última órfã. */
+    grid-template-columns: repeat(auto-fit, minmax(420px, 1fr));
+    /* Cada card tem a altura do próprio conteúdo, sem esticar pela linha. */
+    align-items: start;
+    gap: 26px;
+}
+
+.skill-card {
+    position: relative;
+    padding: 26px 26px 30px;
+    border-radius: 18px;
+    border: 1px solid rgba(255, 255, 255, 0.1);
     overflow: hidden;
-    position: relative;
+
+    /* Vidro: fundo translúcido + blur sobre as partículas. */
+    background: var(--glass-bg);
+    backdrop-filter: var(--glass-blur);
+    box-shadow: var(--glass-shadow);
+    transition: transform 0.35s ease, border-color 0.35s ease, box-shadow 0.35s ease;
 }
 
-.skill-bar {
-    height: 100%;
-    border-radius: 4px;
-    position: relative;
-    transition: width 1.5s ease-in-out;
-}
-
-.skill-bar-progress {
-    height: 100%;
-    background: linear-gradient(90deg, #149ddd 0%, #1f5297 100%);
-    border-radius: 4px;
-    position: relative;
-    animation: progressAnimation 1.5s ease-in-out;
-}
-
-.skill-bar-progress::after {
-    content: '';
+/* Brilho sutil no topo, reforçando a leitura de "vidro". */
+.skill-card::before {
+    content: "";
     position: absolute;
     top: 0;
     left: 0;
-    bottom: 0;
     right: 0;
-    background-image: linear-gradient(
-            -45deg,
-            rgba(255, 255, 255, 0.2) 25%,
-            transparent 25%,
-            transparent 50%,
-            rgba(255, 255, 255, 0.2) 50%,
-            rgba(255, 255, 255, 0.2) 75%,
-            transparent 75%,
-            transparent
+    height: 1px;
+    background: linear-gradient(
+        90deg,
+        transparent,
+        rgba(255, 255, 255, 0.35),
+        transparent
     );
-    background-size: 15px 15px;
-    animation: moveStripes 2s linear infinite;
 }
 
-/* Animations */
-@keyframes progressAnimation {
-    0% {
-        width: 0%;
-    }
+.skill-card:hover {
+    transform: translateY(-6px);
+    border-color: rgba(20, 157, 221, 0.45);
+    box-shadow: var(--glass-shadow-hover);
 }
 
-@keyframes moveStripes {
-    0% {
-        background-position: 0 0;
-    }
-    100% {
-        background-position: 15px 0;
-    }
+.skill-card-header {
+    display: flex;
+    align-items: center;
+    gap: 14px;
+    padding-bottom: 18px;
+    margin-bottom: 20px;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.08);
 }
 
-/* REMOVIDO: As regras que estavam sobrescrevendo */
-/* .skill-item:nth-child(1) .skill-bar-progress */
-/* .skill-item:nth-child(2) .skill-bar-progress */
-/* .skill-item:nth-child(3) .skill-bar-progress */
-
-/* Gradiente verde para skills com 100% */
-.skill-bar-progress.skill-master {
-    background: linear-gradient(90deg, #28a745 0%, #20c997 100%);
+.skill-card-icon {
+    display: grid;
+    place-items: center;
+    flex-shrink: 0;
+    width: 44px;
+    height: 44px;
+    border-radius: 12px;
+    font-size: 23px;
+    color: #7fd0f5;
+    background: linear-gradient(
+        135deg,
+        rgba(20, 157, 221, 0.28) 0%,
+        rgba(31, 82, 151, 0.22) 100%
+    );
+    border: 1px solid rgba(20, 157, 221, 0.3);
 }
 
-/* ESPAÇAMENTO RESPONSIVO */
+.skill-card-title {
+    flex: 1;
+    margin: 0;
+    font-size: 17px;
+    font-weight: 700;
+    color: #fff;
+    letter-spacing: 0.3px;
+}
+
+.skill-card-count {
+    flex-shrink: 0;
+    min-width: 26px;
+    padding: 3px 9px;
+    border-radius: 20px;
+    font-size: 12px;
+    font-weight: 700;
+    text-align: center;
+    color: #9aa4ae;
+    background: rgba(255, 255, 255, 0.07);
+}
+
+/*--------------------------------------------------------------
+# Grupos por nível
+--------------------------------------------------------------*/
+.skill-groups {
+    display: flex;
+    flex-direction: column;
+    gap: 18px;
+}
+
+/*
+ * O nível vem escrito, não só na cor — quem não distingue as cores continua
+ * lendo a informação.
+ */
+.skill-group-label {
+    display: flex;
+    align-items: center;
+    gap: 7px;
+    margin: 0 0 10px;
+    font-size: 11px;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 1.1px;
+    color: var(--level-color);
+}
+
+.skill-group-label i {
+    font-size: 14px;
+}
+
+.skill-chips {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+}
+
+.skill-chip {
+    display: inline-flex;
+    align-items: center;
+    gap: 7px;
+    padding: 8px 14px;
+    border-radius: 30px;
+    font-size: 13px;
+    font-weight: 600;
+    color: #e8edf2;
+    background: var(--chip-bg);
+    border: 1px solid var(--chip-border);
+    transition: transform 0.25s ease, background 0.25s ease;
+}
+
+.skill-chip:hover {
+    transform: translateY(-2px);
+    background: var(--chip-bg-hover);
+}
+
+.skill-chip i {
+    font-size: 15px;
+    color: var(--level-color);
+}
+
+/*--------------------------------------------------------------
+# Paleta por nível
+--------------------------------------------------------------*/
+.level-advanced {
+    --level-color: #46c9f5;
+    --chip-bg: rgba(20, 157, 221, 0.2);
+    --chip-bg-hover: rgba(20, 157, 221, 0.34);
+    --chip-border: rgba(20, 157, 221, 0.5);
+}
+
+.level-solid {
+    --level-color: #7f9cc9;
+    --chip-bg: rgba(31, 82, 151, 0.2);
+    --chip-bg-hover: rgba(31, 82, 151, 0.34);
+    --chip-border: rgba(31, 82, 151, 0.48);
+}
+
+.level-learning {
+    --level-color: #9aa4ae;
+    --chip-bg: rgba(255, 255, 255, 0.05);
+    --chip-bg-hover: rgba(255, 255, 255, 0.1);
+    --chip-border: rgba(255, 255, 255, 0.16);
+}
+
+/*--------------------------------------------------------------
+# Responsivo
+--------------------------------------------------------------*/
 @media (max-width: 768px) {
-    .skills {
-        padding: 60px 0;
+    .skills-grid {
+        grid-template-columns: 1fr;
+        gap: 20px;
     }
 
-    .skill-category {
-        padding: 20px;
-        margin-bottom: 20px;
+    .skill-card {
+        padding: 22px 20px 26px;
     }
 
-    .skills-container .row > .col-lg-6 {
-        padding: 10px;
+    /*
+     * No mobile a legenda virava três blocos altos antes da primeira skill.
+     * Vira uma fileira de pílulas compactas; a descrição fica só no desktop.
+     */
+    .skill-legend {
+        grid-template-columns: 1fr;
+        gap: 8px;
+        margin-bottom: 26px;
     }
 
-    .skill-item {
-        padding: 15px;
+    .skill-legend-item {
+        flex-direction: row;
+        align-items: center;
+        gap: 10px;
+        padding: 11px 14px;
+        border-radius: 10px;
     }
 
-    .skill-name {
-        font-size: 12px;
+    .skill-legend-item > i {
+        font-size: 17px;
     }
 
-    .skill-percentage {
-        font-size: 12px;
-        padding: 3px 8px;
+    .skill-legend-label {
+        font-size: 12.5px;
+    }
+
+    .skill-legend-description {
+        display: none;
     }
 }
 
 @media (max-width: 576px) {
-    .skills {
-        padding: 40px 0;
+    .skill-card-title {
+        font-size: 15.5px;
     }
 
-    .skill-category {
-        padding: 15px;
-        margin-bottom: 15px;
+    .skill-chip {
+        font-size: 12.5px;
+        padding: 7px 12px;
+    }
+}
+
+@media (prefers-reduced-motion: reduce) {
+    .skill-card,
+    .skill-chip {
+        transition: none;
+    }
+}
+
+/*
+ * Sem suporte a backdrop-filter (Firefox antigo), o vidro cairia para quase
+ * transparente e o texto ficaria ilegível sobre as partículas.
+ */
+@supports not (backdrop-filter: blur(1px)) {
+    .skill-card,
+    .skill-legend-item {
+        background: rgba(33, 37, 41, 0.92);
+    }
+}
+
+/* Com número ímpar de categorias a última não fica órfã: ocupa a linha inteira
+   e distribui os grupos de nível lado a lado para preencher a largura. */
+@media (min-width: 1200px) {
+    .skills-grid > .skill-card:last-child:nth-child(odd) {
+        grid-column: 1 / -1;
     }
 
-    .skills-container .row > .col-lg-6 {
-        padding: 8px;
+    .skills-grid > .skill-card:last-child:nth-child(odd) .skill-groups {
+        flex-direction: row;
+        flex-wrap: wrap;
+        gap: 40px;
     }
 
-    .skill-header {
-        flex-direction: column;
-        align-items: flex-start;
-        gap: 8px;
-    }
-
-    .skill-percentage {
-        align-self: flex-end;
+    .skills-grid > .skill-card:last-child:nth-child(odd) .skill-group {
+        flex: 1 1 220px;
     }
 }

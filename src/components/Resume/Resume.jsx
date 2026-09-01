@@ -252,7 +252,12 @@ const Resume = () => {
                 <div className="row">
                     {/* Experiência Profissional */}
                     <div className="col-lg-6" data-aos="fade-up">
-                        <h3 className="resume-title">Experiência Profissional</h3>
+                        <h3 className="resume-title">
+                            <span className="resume-title-icon" aria-hidden="true">
+                                <i className="bx bx-briefcase-alt-2"></i>
+                            </span>
+                            Experiência Profissional
+                        </h3>
                         {experiences.map((exp, index) => (
                             <div key={index} className="resume-item">
                                 <div className="resume-header">
@@ -287,7 +292,12 @@ const Resume = () => {
                     {/* Formação e Certificados */}
                     <div className="col-lg-6" data-aos="fade-up" data-aos-delay="100">
                         {/* Formação Acadêmica */}
-                        <h3 className="resume-title">Formação Acadêmica</h3>
+                        <h3 className="resume-title">
+                            <span className="resume-title-icon" aria-hidden="true">
+                                <i className="bx bx-book-open"></i>
+                            </span>
+                            Formação Acadêmica
+                        </h3>
                         {education.map((edu, index) => (
                             <div key={index} className="resume-item">
                                 <div className="resume-header">
@@ -307,7 +317,12 @@ const Resume = () => {
                         ))}
 
                         {/* Certificados Organizados por Categoria */}
-                        <h3 className="resume-title">Certificações</h3>
+                        <h3 className="resume-title">
+                            <span className="resume-title-icon" aria-hidden="true">
+                                <i className="bx bx-medal"></i>
+                            </span>
+                            Certificações
+                        </h3>
                         <div className="certificates-container">
                             {Object.entries(groupedCertificates).map(([category, certs]) => (
                                 <div key={category} className="certificate-category">
@@ -317,7 +332,7 @@ const Resume = () => {
                                             <div key={index} className="certificate-card">
                                                 <div className="certificate-content">
                                                     <h5>{cert.name}</h5>
-                                                    <span className="certificate-category">{cert.category}</span>
+                                                    <span className="certificate-tag">{cert.category}</span>
                                                 </div>
                                             </div>
                                         ))}
